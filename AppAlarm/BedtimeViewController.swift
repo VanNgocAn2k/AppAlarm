@@ -20,11 +20,6 @@ class BedtimeViewController: UIViewController {
         }
     
     }
-    @objc func picker(_ sender: UIDatePicker) {
-        let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "HH:mm a"
-        dateTF.text = dateFormat.string(from: sender.date)
-    }
-    
+ 
 
 }
