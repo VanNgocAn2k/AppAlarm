@@ -13,6 +13,7 @@ class SettingAlarmViewController: UIViewController {
     var arrData = [Alarm]()
     var index: IndexPath?
     var isEditingMode = false
+    var isSelectEdit: Bool = false
     
     @IBOutlet weak var alarmTableView: UITableView!
     @IBOutlet weak var editAlarm: UIBarButtonItem!
@@ -28,6 +29,7 @@ class SettingAlarmViewController: UIViewController {
         alarmTableView.separatorColor = .gray
         self.alarmTableView.dataSource = self
         self.alarmTableView.delegate = self
+        self.alarmTableView.allowsSelectionDuringEditing = true
         
         self.registerTableViewCells()
         fetchData()
@@ -44,11 +46,13 @@ class SettingAlarmViewController: UIViewController {
         {
             isEditingMode = false
             self.editAlarm.title = "Sửa"
+            self.isSelectEdit = false
         }
         else
         {
             isEditingMode = true
             self.editAlarm.title = "Xong"
+            self.isSelectEdit = true
         }
         self.setEditing(isEditingMode, animated: true)
     }
@@ -140,15 +144,8 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isEditing {
-            self.index = indexPath
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "EditAlarmViewController") as! EditAlarmViewController
-            vc.objectAlarm = arrData[indexPath.row]
-            vc.deleteDelegate = self
-            vc.updateDelegate = self
-            self.present(vc, animated: true)
-        } else {
+        print("--- isSelectEdit \(isSelectEdit)")
+        if isSelectEdit {
             self.index = indexPath
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "EditAlarmViewController") as! EditAlarmViewController
