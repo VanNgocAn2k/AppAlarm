@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AB4B8FE67209FFBD545ECDB /* Pods_AppAlarm_AppAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0DB6F0056BBDCA2AC8E45D /* Pods_AppAlarm_AppAlarmUITests.framework */; };
 		560421EF28DEF70100AE5CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560421EE28DEF70100AE5CAE /* AppDelegate.swift */; };
 		560421F128DEF70100AE5CAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560421F028DEF70100AE5CAE /* SceneDelegate.swift */; };
 		560421F328DEF70100AE5CAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560421F228DEF70100AE5CAE /* ViewController.swift */; };
@@ -72,7 +71,6 @@
 		56F92D2228FABDD6007795C6 /* Space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D1028FABDD6007795C6 /* Space.mp3 */; };
 		56F92D2428FC0B02007795C6 /* Thầy Ba cười.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2328FC0B02007795C6 /* Thầy Ba cười.mp3 */; };
 		87845C166015359F090790C8 /* Pods_AppAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB071A1E5D114E4C7403EF8D /* Pods_AppAlarm.framework */; };
-		8E48C8A223BCFF0C21090156 /* Pods_AppAlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE36C859F4F74F24F8B5C6D1 /* Pods_AppAlarmTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C0DB6F0056BBDCA2AC8E45D /* Pods_AppAlarm_AppAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppAlarm_AppAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C8C1730E990D5AAB61309FD /* Pods-AppAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppAlarm.debug.xcconfig"; path = "Target Support Files/Pods-AppAlarm/Pods-AppAlarm.debug.xcconfig"; sourceTree = "<group>"; };
 		560421EB28DEF70100AE5CAE /* AppAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		560421EE28DEF70100AE5CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,13 +159,8 @@
 		56F92D0F28FABDD6007795C6 /* Wake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wake.mp3; sourceTree = "<group>"; };
 		56F92D1028FABDD6007795C6 /* Space.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Space.mp3; sourceTree = "<group>"; };
 		56F92D2328FC0B02007795C6 /* Thầy Ba cười.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Thầy Ba cười.mp3"; sourceTree = "<group>"; };
-		59C712B71B67169FE7CFC517 /* Pods-AppAlarm-AppAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppAlarm-AppAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-AppAlarm-AppAlarmUITests/Pods-AppAlarm-AppAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		71D8C0F4443CECB47C6E62FC /* Pods-AppAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppAlarm.release.xcconfig"; path = "Target Support Files/Pods-AppAlarm/Pods-AppAlarm.release.xcconfig"; sourceTree = "<group>"; };
 		BB071A1E5D114E4C7403EF8D /* Pods_AppAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE8388B4B5F9C3B51849E156 /* Pods-AppAlarm-AppAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppAlarm-AppAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-AppAlarm-AppAlarmUITests/Pods-AppAlarm-AppAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
-		DE36C859F4F74F24F8B5C6D1 /* Pods_AppAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E432834CDF9739E7A496D2E1 /* Pods-AppAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppAlarmTests.debug.xcconfig"; path = "Target Support Files/Pods-AppAlarmTests/Pods-AppAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F982BB031E7ECB4768043F85 /* Pods-AppAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-AppAlarmTests/Pods-AppAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +176,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E48C8A223BCFF0C21090156 /* Pods_AppAlarmTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +183,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AB4B8FE67209FFBD545ECDB /* Pods_AppAlarm_AppAlarmUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,10 +194,6 @@
 			children = (
 				4C8C1730E990D5AAB61309FD /* Pods-AppAlarm.debug.xcconfig */,
 				71D8C0F4443CECB47C6E62FC /* Pods-AppAlarm.release.xcconfig */,
-				59C712B71B67169FE7CFC517 /* Pods-AppAlarm-AppAlarmUITests.debug.xcconfig */,
-				BE8388B4B5F9C3B51849E156 /* Pods-AppAlarm-AppAlarmUITests.release.xcconfig */,
-				E432834CDF9739E7A496D2E1 /* Pods-AppAlarmTests.debug.xcconfig */,
-				F982BB031E7ECB4768043F85 /* Pods-AppAlarmTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -395,8 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				BB071A1E5D114E4C7403EF8D /* Pods_AppAlarm.framework */,
-				1C0DB6F0056BBDCA2AC8E45D /* Pods_AppAlarm_AppAlarmUITests.framework */,
-				DE36C859F4F74F24F8B5C6D1 /* Pods_AppAlarmTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -427,7 +411,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5604221828DEF70200AE5CAE /* Build configuration list for PBXNativeTarget "AppAlarmTests" */;
 			buildPhases = (
-				6E68B095F2C9ECBA95E7008E /* [CP] Check Pods Manifest.lock */,
 				560421FD28DEF70200AE5CAE /* Sources */,
 				560421FE28DEF70200AE5CAE /* Frameworks */,
 				560421FF28DEF70200AE5CAE /* Resources */,
@@ -446,11 +429,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5604221B28DEF70200AE5CAE /* Build configuration list for PBXNativeTarget "AppAlarmUITests" */;
 			buildPhases = (
-				24E954AECFDAE65F00E58985 /* [CP] Check Pods Manifest.lock */,
 				5604220728DEF70200AE5CAE /* Sources */,
 				5604220828DEF70200AE5CAE /* Frameworks */,
 				5604220928DEF70200AE5CAE /* Resources */,
-				50B996440DCFBEAF149E8214 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -568,67 +549,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24E954AECFDAE65F00E58985 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppAlarm-AppAlarmUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		50B996440DCFBEAF149E8214 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppAlarm-AppAlarmUITests/Pods-AppAlarm-AppAlarmUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppAlarm-AppAlarmUITests/Pods-AppAlarm-AppAlarmUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppAlarm-AppAlarmUITests/Pods-AppAlarm-AppAlarmUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E68B095F2C9ECBA95E7008E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppAlarmTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		842AE6D5D518225E9B54E94B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -876,7 +796,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JG52YH39VN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/AppAlarm/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -906,7 +826,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JG52YH39VN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/AppAlarm/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -928,7 +848,6 @@
 		};
 		5604221928DEF70200AE5CAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E432834CDF9739E7A496D2E1 /* Pods-AppAlarmTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -948,7 +867,6 @@
 		};
 		5604221A28DEF70200AE5CAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F982BB031E7ECB4768043F85 /* Pods-AppAlarmTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -968,7 +886,6 @@
 		};
 		5604221C28DEF70200AE5CAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59C712B71B67169FE7CFC517 /* Pods-AppAlarm-AppAlarmUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -986,7 +903,6 @@
 		};
 		5604221D28DEF70200AE5CAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE8388B4B5F9C3B51849E156 /* Pods-AppAlarm-AppAlarmUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
