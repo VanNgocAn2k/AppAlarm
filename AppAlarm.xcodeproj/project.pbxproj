@@ -215,15 +215,13 @@
 		560421E228DEF70100AE5CAE = {
 			isa = PBXGroup;
 			children = (
-				560421EE28DEF70100AE5CAE /* AppDelegate.swift */,
+				560421ED28DEF70100AE5CAE /* AppAlarm */,
 				560421FC28DEF70200AE5CAE /* Info.plist */,
+				560421EE28DEF70100AE5CAE /* AppDelegate.swift */,
 				560421F028DEF70100AE5CAE /* SceneDelegate.swift */,
 				560421F428DEF70100AE5CAE /* Main.storyboard */,
 				560421F728DEF70200AE5CAE /* Assets.xcassets */,
 				560421F928DEF70200AE5CAE /* LaunchScreen.storyboard */,
-				56CE57FA28EA903E006C7774 /* Music */,
-				56F92CF028F16923007795C6 /* Model */,
-				560421ED28DEF70100AE5CAE /* AppAlarm */,
 				560421EC28DEF70100AE5CAE /* Products */,
 				43046D26F802291564D57FF9 /* Pods */,
 				F63DEDF82C945E40189A3059 /* Frameworks */,
@@ -243,6 +241,8 @@
 		560421ED28DEF70100AE5CAE /* AppAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				56CE57FA28EA903E006C7774 /* Music */,
+				56F92CF028F16923007795C6 /* Model */,
 				56CE57C228E34DAD006C7774 /* AlarmScreen */,
 				56A49E7C28F0827E00E6B98E /* TimezoneScreen */,
 				56CE57C128E34D81006C7774 /* TimerSreeen */,
