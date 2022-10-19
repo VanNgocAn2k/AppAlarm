@@ -148,16 +148,16 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
             vc.deleteDelegate = self
             vc.updateDelegate = self
             self.present(vc, animated: true)
-        } else {
-            self.index = indexPath
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "EditAlarmViewController") as! EditAlarmViewController
-            vc.objectAlarm = arrData[indexPath.row]
-            vc.deleteDelegate = self
-            vc.updateDelegate = self
-            self.present(vc, animated: true)
-        }
-       
+             }        
+//            self.index = indexPath
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "EditAlarmViewController") as! EditAlarmViewController
+//            vc.objectAlarm = arrData[indexPath.row]
+//            vc.deleteDelegate = self
+//            vc.updateDelegate = self
+//            self.present(vc, animated: true)
+//        }
+
     }
 }
 extension SettingAlarmViewController: timelabelRepeatSoundDelegate, deleteDelegste, updateAlarmDelegate {
