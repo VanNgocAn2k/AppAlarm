@@ -13,7 +13,6 @@ class SettingAlarmViewController: UIViewController {
     var arrData = [Alarm]()
     var index: IndexPath?
     var isEditingMode = false
-    var isSelectEdit: Bool = false
     
     @IBOutlet weak var alarmTableView: UITableView!
     @IBOutlet weak var editAlarm: UIBarButtonItem!
@@ -29,6 +28,7 @@ class SettingAlarmViewController: UIViewController {
         alarmTableView.separatorColor = .gray
         self.alarmTableView.dataSource = self
         self.alarmTableView.delegate = self
+        // Cho phép chỉnh sửa tableView
         self.alarmTableView.allowsSelectionDuringEditing = true
         
         self.registerTableViewCells()
@@ -46,13 +46,13 @@ class SettingAlarmViewController: UIViewController {
         {
             isEditingMode = false
             self.editAlarm.title = "Sửa"
-            self.isSelectEdit = false
+    
         }
         else
         {
             isEditingMode = true
             self.editAlarm.title = "Xong"
-            self.isSelectEdit = true
+
         }
         self.setEditing(isEditingMode, animated: true)
     }
@@ -96,13 +96,6 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
         cell.timeLabel.text = "\(time)"
         cell.labelRepeatAlarmLabel.text = "\(object.labelAlarm) \(object.repeatAlarm)"
         
-        if arrData.count == 0 {
-//            if #available(iOS 16.0, *) {
-//                self.editAlarm.isHidden = true
-//            } else {
-//                // Fallback on earlier versions
-//            }
-        }
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.black
         cell.selectedBackgroundView = backgroundView
@@ -115,15 +108,11 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
             let deleteAlarm = self.arrData[indexPath.row]
             Manager.shared.removeAlarm(alarm: deleteAlarm)
             self.fetchData()
-          
+            
         }
         deleteButton.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [deleteButton])
     }
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//        // Vuốt sang trái để xoá
-//        return .delete
-//    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // Khi bấm vào Edit
@@ -131,7 +120,7 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
             arrData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
-       
+        
     }
     func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         // Di chuyển các Row
@@ -144,7 +133,7 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isSelectEdit {
+        if isEditingMode {
             self.index = indexPath
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "EditAlarmViewController") as! EditAlarmViewController
@@ -152,16 +141,8 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
             vc.deleteDelegate = self
             vc.updateDelegate = self
             self.present(vc, animated: true)
-             }
-//            self.index = indexPath
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "EditAlarmViewController") as! EditAlarmViewController
-//            vc.objectAlarm = arrData[indexPath.row]
-//            vc.deleteDelegate = self
-//            vc.updateDelegate = self
-//            self.present(vc, animated: true)
-//        }
-
+        }
+        
     }
 }
 extension SettingAlarmViewController: timelabelRepeatSoundDelegate, deleteDelegste, updateAlarmDelegate {

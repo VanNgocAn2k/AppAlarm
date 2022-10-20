@@ -20,7 +20,7 @@ class SoundViewController: UIViewController {
     var showImageIndex: Int = 0
     weak var delegate: PassSoundAlarmDelegate?
     
-    var arrRing: [String] = ["Thầy Ba cười", "Conmuabanggia", "Comoinoicu", "Demtrangtinhyeu", "Matmoc", "Viyeucudamdau", "Banbietgichua", "Wolvesnaruto", "Nokia8250", "Saohayradequa", "Bell", "Chime", "Dracula", "Electronica", "Escape", "Funky", "Lollypop", "Oldie", "Party", "Ping", "Police", "Ring", "Space", "Tickle", "Transmission", "Trumpet", "Tugboat", "Wake"]
+    var arrRing: [String] = ["Thầy Ba cười", "Dậy Đi Cháu Ơi", "Kill This Love", "Quân Đội Đây", "iPhone", "Bá Đạo", "Bell", "Chime", "Dracula", "Electronica", "Escape", "Funky", "Lollypop", "Oldie", "Party", "Ping", "Police", "Ring", "Space", "Tickle", "Transmission", "Trumpet", "Tugboat", "Wake"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

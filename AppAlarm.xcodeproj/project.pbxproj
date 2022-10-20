@@ -26,15 +26,6 @@
 		56CE57CB28E44F50006C7774 /* LapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CE57C928E44F50006C7774 /* LapTableViewCell.swift */; };
 		56CE57CC28E44F50006C7774 /* LapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57CA28E44F50006C7774 /* LapTableViewCell.xib */; };
 		56CE57CE28E6F828006C7774 /* RingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CE57CD28E6F828006C7774 /* RingViewController.swift */; };
-		56CE57F128E9DC4E006C7774 /* Banbietgichua.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57E828E9DC4E006C7774 /* Banbietgichua.mp3 */; };
-		56CE57F228E9DC4E006C7774 /* Demtrangtinhyeu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57E928E9DC4E006C7774 /* Demtrangtinhyeu.mp3 */; };
-		56CE57F328E9DC4E006C7774 /* Saohayradequa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57EA28E9DC4E006C7774 /* Saohayradequa.mp3 */; };
-		56CE57F428E9DC4E006C7774 /* Conmuabanggia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57EB28E9DC4E006C7774 /* Conmuabanggia.mp3 */; };
-		56CE57F528E9DC4E006C7774 /* Wolvesnaruto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57EC28E9DC4E006C7774 /* Wolvesnaruto.mp3 */; };
-		56CE57F628E9DC4E006C7774 /* Viyeucudamdau.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57ED28E9DC4E006C7774 /* Viyeucudamdau.mp3 */; };
-		56CE57F728E9DC4E006C7774 /* Comoinoicu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57EE28E9DC4E006C7774 /* Comoinoicu.mp3 */; };
-		56CE57F828E9DC4E006C7774 /* Matmoc.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57EF28E9DC4E006C7774 /* Matmoc.mp3 */; };
-		56CE57F928E9DC4E006C7774 /* Nokia8250.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57F028E9DC4E006C7774 /* Nokia8250.mp3 */; };
 		56CE57FD28EAEB18006C7774 /* ShowImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CE57FB28EAEB18006C7774 /* ShowImageTableViewCell.swift */; };
 		56CE57FE28EAEB18006C7774 /* ShowImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CE57FC28EAEB18006C7774 /* ShowImageTableViewCell.xib */; };
 		56CE580028EC98A4006C7774 /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CE57FF28EC98A4006C7774 /* RepeatViewController.swift */; };
@@ -70,6 +61,11 @@
 		56F92D2128FABDD6007795C6 /* Wake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D0F28FABDD6007795C6 /* Wake.mp3 */; };
 		56F92D2228FABDD6007795C6 /* Space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D1028FABDD6007795C6 /* Space.mp3 */; };
 		56F92D2428FC0B02007795C6 /* Thầy Ba cười.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2328FC0B02007795C6 /* Thầy Ba cười.mp3 */; };
+		56F92D26290158B3007795C6 /* Kill This Love.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D25290158B3007795C6 /* Kill This Love.mp3 */; };
+		56F92D28290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D27290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 */; };
+		56F92D2A29015E93007795C6 /* Quân Đội Đây.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2929015E93007795C6 /* Quân Đội Đây.mp3 */; };
+		56F92D2C29016044007795C6 /* iPhone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2B29016044007795C6 /* iPhone.mp3 */; };
+		56F92D2E29016051007795C6 /* Bá Đạo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2D29016051007795C6 /* Bá Đạo.mp3 */; };
 		87845C166015359F090790C8 /* Pods_AppAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB071A1E5D114E4C7403EF8D /* Pods_AppAlarm.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,15 +111,6 @@
 		56CE57C928E44F50006C7774 /* LapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTableViewCell.swift; sourceTree = "<group>"; };
 		56CE57CA28E44F50006C7774 /* LapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LapTableViewCell.xib; sourceTree = "<group>"; };
 		56CE57CD28E6F828006C7774 /* RingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingViewController.swift; sourceTree = "<group>"; };
-		56CE57E828E9DC4E006C7774 /* Banbietgichua.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Banbietgichua.mp3; sourceTree = "<group>"; };
-		56CE57E928E9DC4E006C7774 /* Demtrangtinhyeu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Demtrangtinhyeu.mp3; sourceTree = "<group>"; };
-		56CE57EA28E9DC4E006C7774 /* Saohayradequa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Saohayradequa.mp3; sourceTree = "<group>"; };
-		56CE57EB28E9DC4E006C7774 /* Conmuabanggia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Conmuabanggia.mp3; sourceTree = "<group>"; };
-		56CE57EC28E9DC4E006C7774 /* Wolvesnaruto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wolvesnaruto.mp3; sourceTree = "<group>"; };
-		56CE57ED28E9DC4E006C7774 /* Viyeucudamdau.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Viyeucudamdau.mp3; sourceTree = "<group>"; };
-		56CE57EE28E9DC4E006C7774 /* Comoinoicu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Comoinoicu.mp3; sourceTree = "<group>"; };
-		56CE57EF28E9DC4E006C7774 /* Matmoc.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Matmoc.mp3; sourceTree = "<group>"; };
-		56CE57F028E9DC4E006C7774 /* Nokia8250.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Nokia8250.mp3; sourceTree = "<group>"; };
 		56CE57FB28EAEB18006C7774 /* ShowImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageTableViewCell.swift; sourceTree = "<group>"; };
 		56CE57FC28EAEB18006C7774 /* ShowImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowImageTableViewCell.xib; sourceTree = "<group>"; };
 		56CE57FF28EC98A4006C7774 /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +146,11 @@
 		56F92D0F28FABDD6007795C6 /* Wake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wake.mp3; sourceTree = "<group>"; };
 		56F92D1028FABDD6007795C6 /* Space.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Space.mp3; sourceTree = "<group>"; };
 		56F92D2328FC0B02007795C6 /* Thầy Ba cười.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Thầy Ba cười.mp3"; sourceTree = "<group>"; };
+		56F92D25290158B3007795C6 /* Kill This Love.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kill This Love.mp3"; sourceTree = "<group>"; };
+		56F92D27290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dậy Đi Cháu Ơi.mp3"; sourceTree = "<group>"; };
+		56F92D2929015E93007795C6 /* Quân Đội Đây.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Quân Đội Đây.mp3"; sourceTree = "<group>"; };
+		56F92D2B29016044007795C6 /* iPhone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iPhone.mp3; sourceTree = "<group>"; };
+		56F92D2D29016051007795C6 /* Bá Đạo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bá Đạo.mp3"; sourceTree = "<group>"; };
 		71D8C0F4443CECB47C6E62FC /* Pods-AppAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppAlarm.release.xcconfig"; path = "Target Support Files/Pods-AppAlarm/Pods-AppAlarm.release.xcconfig"; sourceTree = "<group>"; };
 		BB071A1E5D114E4C7403EF8D /* Pods_AppAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -285,15 +277,6 @@
 		56CE57FA28EA903E006C7774 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				56CE57EB28E9DC4E006C7774 /* Conmuabanggia.mp3 */,
-				56CE57EE28E9DC4E006C7774 /* Comoinoicu.mp3 */,
-				56CE57E928E9DC4E006C7774 /* Demtrangtinhyeu.mp3 */,
-				56CE57EF28E9DC4E006C7774 /* Matmoc.mp3 */,
-				56CE57ED28E9DC4E006C7774 /* Viyeucudamdau.mp3 */,
-				56CE57E828E9DC4E006C7774 /* Banbietgichua.mp3 */,
-				56CE57EC28E9DC4E006C7774 /* Wolvesnaruto.mp3 */,
-				56CE57F028E9DC4E006C7774 /* Nokia8250.mp3 */,
-				56CE57EA28E9DC4E006C7774 /* Saohayradequa.mp3 */,
 				56F92D0B28FABDD6007795C6 /* Bell.mp3 */,
 				56F92D0528FABDD6007795C6 /* Chime.mp3 */,
 				56F92D0828FABDD6007795C6 /* Dracula.mp3 */,
@@ -313,6 +296,11 @@
 				56F92D0628FABDD6007795C6 /* Tugboat.mp3 */,
 				56F92D0F28FABDD6007795C6 /* Wake.mp3 */,
 				56F92D2328FC0B02007795C6 /* Thầy Ba cười.mp3 */,
+				56F92D25290158B3007795C6 /* Kill This Love.mp3 */,
+				56F92D27290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 */,
+				56F92D2929015E93007795C6 /* Quân Đội Đây.mp3 */,
+				56F92D2B29016044007795C6 /* iPhone.mp3 */,
+				56F92D2D29016051007795C6 /* Bá Đạo.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -493,32 +481,29 @@
 			files = (
 				560421FB28DEF70200AE5CAE /* LaunchScreen.storyboard in Resources */,
 				56F92D1E28FABDD6007795C6 /* Transmission.mp3 in Resources */,
+				56F92D2A29015E93007795C6 /* Quân Đội Đây.mp3 in Resources */,
 				56F92D2428FC0B02007795C6 /* Thầy Ba cười.mp3 in Resources */,
-				56CE57F128E9DC4E006C7774 /* Banbietgichua.mp3 in Resources */,
 				56F92D2028FABDD6007795C6 /* Escape.mp3 in Resources */,
+				56F92D2E29016051007795C6 /* Bá Đạo.mp3 in Resources */,
+				56F92D28290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 in Resources */,
 				56F92D1928FABDD6007795C6 /* Trumpet.mp3 in Resources */,
 				56F92D1F28FABDD6007795C6 /* Ping.mp3 in Resources */,
 				56CE57FE28EAEB18006C7774 /* ShowImageTableViewCell.xib in Resources */,
 				56F92D1728FABDD6007795C6 /* Chime.mp3 in Resources */,
 				56F92D1D28FABDD6007795C6 /* Bell.mp3 in Resources */,
-				56CE57F328E9DC4E006C7774 /* Saohayradequa.mp3 in Resources */,
-				56CE57F928E9DC4E006C7774 /* Nokia8250.mp3 in Resources */,
 				56F92D1A28FABDD6007795C6 /* Dracula.mp3 in Resources */,
 				56F92D1C28FABDD6007795C6 /* Funky.mp3 in Resources */,
-				56CE57F528E9DC4E006C7774 /* Wolvesnaruto.mp3 in Resources */,
 				56F92D1528FABDD6007795C6 /* Ring.mp3 in Resources */,
+				56F92D2C29016044007795C6 /* iPhone.mp3 in Resources */,
 				56CE581128ED17FF006C7774 /* SoundTableViewCell.xib in Resources */,
-				56CE57F428E9DC4E006C7774 /* Conmuabanggia.mp3 in Resources */,
 				56F92CFA28F17882007795C6 /* TimezoneTableViewCell.xib in Resources */,
 				56F92D2128FABDD6007795C6 /* Wake.mp3 in Resources */,
 				56F92D1828FABDD6007795C6 /* Tugboat.mp3 in Resources */,
 				560421F828DEF70200AE5CAE /* Assets.xcassets in Resources */,
-				56CE57F628E9DC4E006C7774 /* Viyeucudamdau.mp3 in Resources */,
 				56F92D1428FABDD6007795C6 /* Lollypop.mp3 in Resources */,
 				56F92D1228FABDD6007795C6 /* Oldie.mp3 in Resources */,
-				56CE57F728E9DC4E006C7774 /* Comoinoicu.mp3 in Resources */,
+				56F92D26290158B3007795C6 /* Kill This Love.mp3 in Resources */,
 				56F92D1128FABDD6007795C6 /* Tickle.mp3 in Resources */,
-				56CE57F228E9DC4E006C7774 /* Demtrangtinhyeu.mp3 in Resources */,
 				56CE57CC28E44F50006C7774 /* LapTableViewCell.xib in Resources */,
 				56F92D1B28FABDD6007795C6 /* Electronica.mp3 in Resources */,
 				56CE580828ED15F9006C7774 /* RepeatTableViewCell.xib in Resources */,
@@ -527,7 +512,6 @@
 				5604222528DF13A600AE5CAE /* CustomTableViewCell.xib in Resources */,
 				56F92D1328FABDD6007795C6 /* Police.mp3 in Resources */,
 				560421F628DEF70100AE5CAE /* Main.storyboard in Resources */,
-				56CE57F828E9DC4E006C7774 /* Matmoc.mp3 in Resources */,
 				56F92CFE28F17897007795C6 /* AddTimezoneTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

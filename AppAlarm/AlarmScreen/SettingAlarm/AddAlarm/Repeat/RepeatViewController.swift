@@ -11,16 +11,16 @@ protocol RepeatViewControllerdelgate: AnyObject {
     func pickRepeat(repeats: [Int])
 }
 class RepeatViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var delegate: RepeatViewControllerdelgate?
     
     
-    let arrWeekday: [String] = ["Mọi thứ hai", "Mọi thứ ba", "Mọi thứ tư", "Mọi thứ năm", "Mọi thứ sáu", "Mọi thứ bảy", "Mọi chủ nhật"]
+    var arrWeekday: [String] = ["Mọi chủ nhật", "Mọi thứ hai", "Mọi thứ ba", "Mọi thứ tư", "Mọi thứ năm", "Mọi thứ sáu", "Mọi thứ bảy"]
     
     var chooseRepeat:[String] = []
-
+    
     var showImageIndex = Set<Int>()
     
     override func viewDidLoad() {
@@ -30,15 +30,28 @@ class RepeatViewController: UIViewController {
         tableView.tableFooterView = UIView()
         self.registerTableViewCells()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        arrWeekday = getUserDefault()
+    }
     private func registerTableViewCells(){
         let repeatCell = UINib(nibName: "RepeatTableViewCell", bundle: nil)
         self.tableView.register(repeatCell, forCellReuseIdentifier: "RepeatTableViewCell")
     }
-  
+    func setUserDefault() {
+        UserDefaults.standard.set(self.arrWeekday, forKey: "choseCheckmark")
+        UserDefaults.standard.synchronize()
+    }
+    func getUserDefault() -> [String] {
+        if UserDefaults.standard.value(forKey: "choseCheckmark") != nil {
+            self.arrWeekday = UserDefaults.standard.value(forKey: "choseCheckmark") as! [String]
+        }
+        return arrWeekday
+    }
+    
     @IBAction func backAction(_ sender: UIBarButtonItem) {
         
         print(showImageIndex)
-
+        
         //Biến  Set thành Array, và sắp xếp theo tăng dần bằng sorted
         let arry = Array(showImageIndex).sorted()
         print(arry)
@@ -46,7 +59,7 @@ class RepeatViewController: UIViewController {
         
         dismiss(animated: true)
         
-
+        
     }
 }
 extension RepeatViewController: UITableViewDelegate, UITableViewDataSource {
@@ -57,13 +70,13 @@ extension RepeatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepeatTableViewCell", for: indexPath) as! RepeatTableViewCell
         cell.repeatDayLabel.text = arrWeekday[indexPath.row]
-
+        
         if showImageIndex.contains(indexPath.row) {
-                   cell.checkmarkImage.isHidden = false
-               } else {
-                   cell.checkmarkImage.isHidden = true
-               }
-
+            cell.checkmarkImage.isHidden = false
+        } else {
+            cell.checkmarkImage.isHidden = true
+        }
+        
         return cell
         
     }
@@ -82,6 +95,8 @@ extension RepeatViewController: UITableViewDelegate, UITableViewDataSource {
             showImageIndex.insert(index)
         }
         self.tableView.reloadData()
+       
     }
+    
     
 }
