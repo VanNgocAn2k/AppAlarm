@@ -96,12 +96,41 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
         cell.timeLabel.text = "\(time)"
         cell.labelRepeatAlarmLabel.text = "\(object.labelAlarm) \(object.repeatAlarm)"
         
+//        let sw = UISwitch(frame: CGRect())
+////        sw.setOn(true, animated: false)
+//        sw.transform = CGAffineTransform(scaleX: 0.9, y: 0.9);
+//        sw.tag = indexPath.row
+//        sw.addTarget(self, action: #selector(self.switchTapped(_:)), for: .valueChanged)
+//        if object.isEnable {
+//            cell.timeLabel.textColor = .blue
+//            cell.labelRepeatAlarmLabel.textColor = .blue
+//            sw.setOn(true, animated: false)
+//        } else {
+//            cell.timeLabel.textColor = .red
+//            cell.labelRepeatAlarmLabel.textColor = .red
+//        }
+//        cell.accessoryView = sw
+        
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.black
         cell.selectedBackgroundView = backgroundView
         return cell
+       
         
     }
+//    @IBAction func switchTapped(_ sender: UISwitch) {
+//        let index = sender.tag
+//        arrData[index].isEnable = sender.isOn
+//        if sender.isOn {
+//            print("switch on")
+//
+//        }
+//        else {
+//            print("switch off")
+//
+//        }
+//    }
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteButton = UIContextualAction(style: .destructive, title: "Xoá") { _, _, _ in
             // xóa phần tử tại indexPath.row

@@ -138,8 +138,6 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 let newAlarm = Alarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, repeatAlarm: "", soundAlarm: currentSound, isEnable: true)
                 Manager.shared.addNewAlarm(alarm: newAlarm)
                 // Chỉ báo 1 lầnweekdaysz
-                weekdays
-                
                 if date1 > current2 {
                     print("hoom nay")
                     let content = UNMutableNotificationContent()
@@ -228,7 +226,9 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 Manager.shared.addNewAlarm(alarm: newAlarm)
                 // Chỗ này lặp lại các tthứ cụ thể
                 let hour: Int = Calendar.current.component(.hour, from: date)
+                print("Giờ chọn được", hour)
                 let minute: Int = Calendar.current.component(.minute, from: date)
+                print("phút", minute)
                 let year: Int = Calendar.current.component(.year, from: date)
                 // let weekday: Int = Calendar.current.component(.weekday, from: date)
                 var weekday = 1
