@@ -23,7 +23,7 @@ class BedtimeViewController: UIViewController {
 //    public struct NotificationManager {
 //        let notificationCenter = UNUserNotificationCenter.current()
 //        static let sharedInstance = NotificationManager()
-//        
+//
 //       private func checkRequestAuthorization(completion: @escaping(Bool) -> Void) -> () {
 //            let options: UNAuthorizationOptions = [.alert, .sound,]
 //            notificationCenter.requestAuthorization(options: options) {
@@ -31,7 +31,7 @@ class BedtimeViewController: UIViewController {
 //                completion(didAllow)
 //            }
 //        }
-//        
+//
 //        func setLocalNotifications() {
 //            checkRequestAuthorization { isAllowed in
 //                if isAllowed {
@@ -40,7 +40,7 @@ class BedtimeViewController: UIViewController {
 //                }
 //            }
 //        }
-//        
+//
 //        private func getNotificationsCredentials() -> [CustomNotification] {
 //            return [
 //                CustomNotification(hours: 8, title: "Smiling Sunday", body: "What makes you smile?", weekDay: 1),
@@ -54,7 +54,7 @@ class BedtimeViewController: UIViewController {
 //                CustomNotification(hours: 16, title: "Singing Saturday,", body: "Let’s dance and sing together!",weekDay: 7),
 //            ]
 //        }
-//        
+//
 //        private func addNotificationRequest(title: String, body: String, notifications: [CustomNotification]) {
 //            notificationCenter.removeAllPendingNotificationRequests()
 //           // let gregorian = Calendar(identifier: Calendar.Identifier.gregorian)
@@ -82,9 +82,9 @@ class BedtimeViewController: UIViewController {
 //                notificationCenter.add(reguest) { err in
 //                }
 //            }
-//            
+//
 //        }
 //    }
-// 
+//
 
 }

@@ -29,6 +29,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             self.configState()
         }
     }
+    var currentSound: String = ""
+    
     @IBOutlet weak var containerCancelButtonView: UIView!
     @IBOutlet weak var containerStartButtonView: UIView!
     
@@ -320,7 +322,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     func configPicker(){
         picker.delegate = self
         picker.dataSource = self
-        picker.frame = CGRect(x: 50, y: 70, width: self.view.frame.width - 100, height: 200)
+        picker.frame = CGRect(x: 0, y: 50, width: self.view.frame.width, height: 200)
         picker.setValue(UIColor.white, forKey: "textColor")
         view.addSubview(picker)
     }
@@ -379,8 +381,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         shapeLayer.speed = 0.0
         shapeLayer.timeOffset = pausedTime
     }
-    
-    var currentSound: String = ""
 }
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
@@ -430,16 +430,11 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     
     func setContraint(){
         view.addSubview(shapeView)
-       // shapeView.addSubview(timerLabel)
-       // shapeView.addSubview(shapeLayer)
         NSLayoutConstraint.activate([
             shapeView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
             shapeView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2/3),
             shapeView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             shapeView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            //            shapeView.heightAnchor.constraint(equalToConstant: 300),
-            //            shapeView.widthAnchor.constraint(equalToConstant: 300)
-
         ])
     }
 }

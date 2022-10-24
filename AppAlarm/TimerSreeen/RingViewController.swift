@@ -21,7 +21,7 @@ class RingViewController: UIViewController {
     
     weak var delegate: PassSoundDelegate?
     
-    var arrRing: [String] = ["Thầy Ba cười", "Dậy Đi Cháu Ơi", "Kill This Love", "Quân Đội Đây", "iPhone", "Bá Đạo", "Bell", "Chime", "Dracula", "Electronica", "Escape", "Funky", "Lollypop", "Oldie", "Party", "Ping", "Police", "Ring", "Space", "Tickle", "Transmission", "Trumpet", "Tugboat", "Wake"]
+    var arrRing: [String] = ["Thầy Ba cười", "Dậy Đi Cháu Ơi", "Kill This Love", "Quân Đội", "iPhone", "Bá Đạo", "Bell", "Chime", "Dracula", "Electronica", "Escape", "Funky", "Lollypop", "Oldie", "Party", "Ping", "Police", "Ring", "Space", "Tickle", "Transmission", "Trumpet", "Tugboat", "Wake"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

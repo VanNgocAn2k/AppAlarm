@@ -63,7 +63,7 @@
 		56F92D2428FC0B02007795C6 /* Thầy Ba cười.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2328FC0B02007795C6 /* Thầy Ba cười.mp3 */; };
 		56F92D26290158B3007795C6 /* Kill This Love.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D25290158B3007795C6 /* Kill This Love.mp3 */; };
 		56F92D28290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D27290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 */; };
-		56F92D2A29015E93007795C6 /* Quân Đội Đây.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2929015E93007795C6 /* Quân Đội Đây.mp3 */; };
+		56F92D2A29015E93007795C6 /* Quân Đội.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2929015E93007795C6 /* Quân Đội.mp3 */; };
 		56F92D2C29016044007795C6 /* iPhone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2B29016044007795C6 /* iPhone.mp3 */; };
 		56F92D2E29016051007795C6 /* Bá Đạo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56F92D2D29016051007795C6 /* Bá Đạo.mp3 */; };
 		87845C166015359F090790C8 /* Pods_AppAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB071A1E5D114E4C7403EF8D /* Pods_AppAlarm.framework */; };
@@ -148,7 +148,7 @@
 		56F92D2328FC0B02007795C6 /* Thầy Ba cười.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Thầy Ba cười.mp3"; sourceTree = "<group>"; };
 		56F92D25290158B3007795C6 /* Kill This Love.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kill This Love.mp3"; sourceTree = "<group>"; };
 		56F92D27290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dậy Đi Cháu Ơi.mp3"; sourceTree = "<group>"; };
-		56F92D2929015E93007795C6 /* Quân Đội Đây.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Quân Đội Đây.mp3"; sourceTree = "<group>"; };
+		56F92D2929015E93007795C6 /* Quân Đội.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Quân Đội.mp3"; sourceTree = "<group>"; };
 		56F92D2B29016044007795C6 /* iPhone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iPhone.mp3; sourceTree = "<group>"; };
 		56F92D2D29016051007795C6 /* Bá Đạo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bá Đạo.mp3"; sourceTree = "<group>"; };
 		71D8C0F4443CECB47C6E62FC /* Pods-AppAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppAlarm.release.xcconfig"; path = "Target Support Files/Pods-AppAlarm/Pods-AppAlarm.release.xcconfig"; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 				56F92D2328FC0B02007795C6 /* Thầy Ba cười.mp3 */,
 				56F92D25290158B3007795C6 /* Kill This Love.mp3 */,
 				56F92D27290159C8007795C6 /* Dậy Đi Cháu Ơi.mp3 */,
-				56F92D2929015E93007795C6 /* Quân Đội Đây.mp3 */,
+				56F92D2929015E93007795C6 /* Quân Đội.mp3 */,
 				56F92D2B29016044007795C6 /* iPhone.mp3 */,
 				56F92D2D29016051007795C6 /* Bá Đạo.mp3 */,
 			);
@@ -481,7 +481,7 @@
 			files = (
 				560421FB28DEF70200AE5CAE /* LaunchScreen.storyboard in Resources */,
 				56F92D1E28FABDD6007795C6 /* Transmission.mp3 in Resources */,
-				56F92D2A29015E93007795C6 /* Quân Đội Đây.mp3 in Resources */,
+				56F92D2A29015E93007795C6 /* Quân Đội.mp3 in Resources */,
 				56F92D2428FC0B02007795C6 /* Thầy Ba cười.mp3 in Resources */,
 				56F92D2028FABDD6007795C6 /* Escape.mp3 in Resources */,
 				56F92D2E29016051007795C6 /* Bá Đạo.mp3 in Resources */,
@@ -786,7 +786,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,7 +816,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

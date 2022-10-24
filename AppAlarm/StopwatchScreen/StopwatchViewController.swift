@@ -39,6 +39,7 @@ class StopwatchViewController: UIViewController {
         lapButton.isEnabled = false
         tableView.dataSource = self
         tableView.backgroundColor = .clear
+        tableView.separatorColor = .gray
         tableView.register(UINib(nibName: "LapTableViewCell", bundle: nil), forCellReuseIdentifier: "LapTableViewCell")
     }
     

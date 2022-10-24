@@ -190,7 +190,7 @@ extension SettingAlarmViewController: timelabelRepeatSoundDelegate, deleteDelegs
     }
     
     func setTimeLabelRepeatSoundAlarm(time: Date, labelAlarm: String, repeatAlarm: String, sound: String) {
-        let timeLabelRepeat2 = Alarm(time: time, labelAlarm: labelAlarm, repeatAlarm: repeatAlarm, soundAlarm: sound, isEnable: true)
+        let timeLabelRepeat2 = Alarm(time: time, labelAlarm: labelAlarm, repeatAlarm: repeatAlarm, soundAlarm: sound, isEnable: true, onOffSnoozed: true)
         print(timeLabelRepeat2)
         arrData.append(timeLabelRepeat2)
         self.alarmTableView.reloadData()

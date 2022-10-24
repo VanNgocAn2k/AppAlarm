@@ -23,12 +23,7 @@ import RealmSwift
     @objc dynamic var isEnable: Bool
 //    @objc dynamic var snoozeEnabled: Bool
 //    @objc dynamic var repeatWeekdays: [Int] = []
-//    @objc dynamic var onSnooze: Bool
-//    @objc dynamic var time: String?
-//    @objc dynamic var labelAlarm: String?
-//    @objc dynamic var repeatAlarm: String?
-//    @objc dynamic var soundAlarm: String?
-//    @objc dynamic var isEnable: Bool
+    @objc dynamic var onOffSnoozed: Bool
     
     override init() {
         self.id = UUID().uuidString
@@ -38,9 +33,9 @@ import RealmSwift
         self.repeatAlarm = ""
         self.isEnable = false
 //        self.snoozeEnabled = false
-//        self.onSnooze = false
+        self.onOffSnoozed = false
     }
-    init(time: Date, labelAlarm: String, repeatAlarm: String, soundAlarm: String, isEnable: Bool) {
+    init(time: Date, labelAlarm: String, repeatAlarm: String, soundAlarm: String, isEnable: Bool, onOffSnoozed: Bool) {
         self.id = UUID().uuidString
         self.soundAlarm = soundAlarm
         self.time = time
@@ -48,7 +43,7 @@ import RealmSwift
         self.repeatAlarm = repeatAlarm
         self.isEnable = isEnable
 //        self.snoozeEnabled = false
-//        self.onSnooze = false
+        self.onOffSnoozed = onOffSnoozed
     }
     
 }
@@ -63,5 +58,17 @@ struct SegueInfo {
     var enabled: Bool
     var snoozeEnabled: Bool
 }
+//extension Alarm: Object {
+//    var isOn: Bool = true{
+//        didSet{
+//            if isOn{
+////                UserNotification.addNotificationRequest(alarm: self)
+//                print("ok")
+//            }else{
+//                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//            }
+//        }
+//    }
+//}
 
 
