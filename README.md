@@ -33,3 +33,41 @@
 |<img src=https://user-images.githubusercontent.com/105619244/197386156-9c0d70c3-76fc-49d2-9c47-cdc7f54d20e0.png alt=10 width="150" />
 <img src=https://user-images.githubusercontent.com/105619244/197386157-417b02db-7e1e-492e-8079-3ed5b0b22156.png alt=11 width="150" />
 <img src=https://user-images.githubusercontent.com/105619244/197386159-e3a86206-1d76-4408-9194-b4438376e0ce.png alt=12 width="150" /> 
+
+## Thao tác
+
+<img src=https://user-images.githubusercontent.com/105619244/198362750-9ac708e1-25d1-4d7b-893c-f63bbbe055bd.mp4
+ alt=21 width="150" /> 
+
+https://user-images.githubusercontent.com/105619244/198362750-9ac708e1-25d1-4d7b-893c-f63bbbe055bd.mp4
+
+
+
+https://user-images.githubusercontent.com/105619244/198362765-215b0379-3f38-4f82-b6a9-03ff5888d8eb.mp4
+
+
+
+https://user-images.githubusercontent.com/105619244/198362802-152378d8-3aba-4bf4-b5c8-34d320e75822.mp4
+
+
+
+https://user-images.githubusercontent.com/105619244/198362805-5233e1c8-0237-48e1-8091-bbd772e079df.mp4
+
+
+
+https://user-images.githubusercontent.com/105619244/198362808-1bbadd17-1867-4c4f-ad35-bcb9f8f56677.mp4
+
+
+
+https://user-images.githubusercontent.com/105619244/198362816-a8974d98-54cb-41a8-8a65-2db7105ae18d.mp4
+
+
+
+https://user-images.githubusercontent.com/105619244/198362821-3d76b0a8-c434-49c6-86db-9ac4b8deab6c.mp4
+
+
+
+https://user-images.githubusercontent.com/105619244/198362827-17986ebf-652a-493e-ac10-067dcc8ffb62.mp4
+
+
+
