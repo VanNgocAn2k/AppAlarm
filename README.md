@@ -1,6 +1,6 @@
 
 # Ứng dụng Dồng hồ 
-* Dựa trên ý tưởng từ [Link](https://play.google.com/store/apps/details?id=com.nhstudio.alarmioss&hl=vi&gl=US)
+* Dựa trên ý tưởng từ [đây](https://play.google.com/store/apps/details?id=com.nhstudio.alarmioss&hl=vi&gl=US)
 
 ## Ảnh chụp màn hình
 
