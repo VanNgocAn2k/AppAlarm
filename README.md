@@ -24,8 +24,8 @@
     }
  ```
 ### Stopwatch
-|<img src=https://user-images.githubusercontent.com/105619244/197386131-bdf36584-a3a7-4bc8-a0a0-3fa048af3eb7.png alt=6 width="150" /> 
-<img src=https://user-images.githubusercontent.com/105619244/197386133-ce33093d-70d6-4d03-bdde-5ee929498574.png alt=7 width="150" /> 
+<kbd><img src=https://user-images.githubusercontent.com/105619244/197386131-bdf36584-a3a7-4bc8-a0a0-3fa048af3eb7.png alt=6 width="150" /> 
+<img src=https://user-images.githubusercontent.com/105619244/197386133-ce33093d-70d6-4d03-bdde-5ee929498574.png alt=7 width="150" /><kbd>
 ### Timezone
 |<img src=https://user-images.githubusercontent.com/105619244/197386135-c06b1eeb-ec40-4bce-a5c1-c50edd82648d.png alt=8 width="150" />
 <img src=https://user-images.githubusercontent.com/105619244/197386136-e14b5493-d53d-4e99-958d-2c11dfda2c43.png alt=9 width="150" /> 
@@ -40,7 +40,7 @@
 <img src=https://user-images.githubusercontent.com/105619244/198434124-3a0d0f24-ccc0-4711-85d3-85366da75ffd.gif alt=32 width="150" /> 
 <img src=https://user-images.githubusercontent.com/105619244/198434132-82f3b151-67cc-47bf-88de-c6e1cd9fd885.gif alt=33 width="150" /> 
 <img src=https://user-images.githubusercontent.com/105619244/198434138-1a4f0413-b646-4f4c-aaf6-7dccec3230c6.gif alt=34 width="150" /> 
-<img src=https://user-images.githubusercontent.com/105619244/198434144-6eb8d85c-6824-43af-a6f4-de1e9b920cb6.gif alt=35 width="150" /> <kbd>
+<img src=https://user-images.githubusercontent.com/105619244/198434144-6eb8d85c-6824-43af-a6f4-de1e9b920cb6.gif alt=35 width="150" /><kbd>
 
 
 
