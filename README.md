@@ -49,7 +49,7 @@
  * Giò thế giới
  * Hẹn giờ
 ## Thư viện sử dụng
-- pod 'RealmSwwift'
+- pod 'RealmSwift'
  
 ## Người viết nội dung 
  [Văn Ngọc An](https://www.facebook.com/an.vanngoc)
