@@ -55,7 +55,6 @@
             <viewLayoutGuide key="safeArea" id="Fq8-0G-4Si"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="alarmSwitchLabel" destination="vCf-KG-p9K" id="P6S-yJ-Uuh"/>
                 <outlet property="labelRepeatAlarmLabel" destination="nsp-H0-Tpx" id="tQI-PQ-5t9"/>
                 <outlet property="timeLabel" destination="fU0-Fv-LqI" id="0vk-go-p4m"/>
             </connections>

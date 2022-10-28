@@ -143,6 +143,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             
             timer?.invalidate()
             self.pauseAnimation()
+            removePendingNotification()
         case .continued:
             self.startButton.isEnabled = true
             self.startButton.setTitle("Dừng", for: .normal)
@@ -232,7 +233,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
                 return
             }
         }
-       
+//        removePendingNotification()
     }
     func removePendingNotification() {
         notificationCenter.getPendingNotificationRequests { (notificationRequests) in
@@ -240,6 +241,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
            for notification: UNNotificationRequest in notificationRequests {
                if notification.content.userInfo["key"] as? String == "Hẹn giờ" {
                   identifiers.append(notification.identifier)
+                   print("notification.identifier", notification.identifier)
                }
            }
             self.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)

@@ -33,7 +33,7 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
     var repeatText = ""
     var objectAlarm: Alarm?
     let datePicker = UIDatePicker()
-//    let id1 = UUID().uuidString
+    
     
     @IBOutlet weak var titleNavi: UINavigationItem!
     @IBOutlet weak var repeatLabel: UILabel!
@@ -41,6 +41,7 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
     @IBOutlet weak var soundAlarmLabel: UILabel!
     @IBOutlet weak var deleteAlarmButton: UIButton!
     @IBOutlet weak var stateSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +61,7 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
         
     }
     func configDatePicker() {
+        view.addSubview(datePicker)
         datePicker.frame = CGRect(x: 0, y: 50, width: self.view.frame.width, height: 200)
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.datePickerMode = .time
@@ -70,7 +72,7 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
         } else {
             // Fallback on earlier versions
         }
-        view.addSubview(datePicker)
+        
     }
     
     @IBAction func deleteAlarmAction(_ sender: UIButton) {
@@ -108,50 +110,36 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
     }
     
     @IBAction func snoozeSwitchAction(_ sender: UISwitch) {
-//        objectAlarm?.onOffSnoozed = sender.isOn
-        
         if objectAlarm == nil {
             if stateSwitch.isOn == true {
                 objectAlarm?.onOffSnoozed = true
-//                let date = objectAlarm?.time
-                let date = self.datePicker.date
-                print("giờ hiện tại", date)
-                let snoozeDate = date.addingTimeInterval(60)
-                print("giờ cộng thêm", snoozeDate)
-                let content = UNMutableNotificationContent()
-                content.title = "Báo lại"
-                content.body = self.labelAlarm2
-                content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-//                    content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
-                content.userInfo = ["key":"id1"]
-                let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: snoozeDate)
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-//                    let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 //                removePendingNotification()
-                self.notificationCenter.add(request) { (error) in
-                    if (error != nil) {
-                        print("Error" + error.debugDescription)
-                        return
-                    }
-                }
+                snoozeAddNotifi()
                 print("switch on")
             } else {
-
+                removePendingNotification()
                 print("switch off")
             }
         } else if objectAlarm != nil {
+//            if sender.isOn {
+//                objectAlarm!.onOffSnoozed = false
+////                removePendingNotification()
+////                var date2 = objectAlarm!.time
+////                print("date2", date2)
+////                snoozeAddNotifi()
+//                print("switch on")
+//            } else {
+//                print("switch off")
+//            }
             if objectAlarm!.onOffSnoozed == true {
-                stateSwitch.isOn = true
-                let date = objectAlarm!.time
-                print("abc", date)
+                sender.isOn = true
+                snoozeAddNotifi()
                 print("on")
             } else {
+                removePendingNotification()
                 print("off")
             }
         }
-//        let triggers = UNTimeIntervalNotificationTrigger(timeInterval: 600,repeats: true)
-        
     }
     
     @IBAction func dismissButtonAction(_ sender: UIBarButtonItem) {
@@ -163,10 +151,10 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
         let date = self.datePicker.date
         let currentDate = Date()
         let tomorrow = date.addingTimeInterval(24.0 * 3600.0)
-//        let tomorrow2 = Calendar.current.date(byAdding: .day, value: 1, to: date)
+        //        let tomorrow2 = Calendar.current.date(byAdding: .day, value: 1, to: date)
         print("Hôm nay", date)
         print("ngay mai", tomorrow)
-//        print("ngay mai 2", tomorrow2)
+        //        print("ngay mai 2", tomorrow2)
         let date1 = date.timeIntervalSince1970
         print("date 1", date1)
         let current2 = currentDate.timeIntervalSince1970
@@ -176,13 +164,6 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
         // new alarm
         // Nếu objAlarm bằng nil thì tạo mới alarm , nếu objectAlarm khác nil thì sửa alarm
         if objectAlarm == nil {
-//
-//            // lưu vào dâtbase ở đây luôn , ko cần sang màn bên kia nữa
-//            let timeLabelRepeat2 = Alarm(time: date, labelAlarm: labelAlarm2, repeatAlarm: repeatText , soundAlarm: currentSound, isEnable: true, onOffSnoozed: true)
-            
-            
-//            let _: () = snoozeSwitchAction(UISwitch())
-            
             if repeats.count == 0 {
                 delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, repeatAlarm:  "", sound: currentSound)
                 
@@ -195,13 +176,12 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                     content.title = "Báo thức"
                     content.body = self.labelAlarm2
                     content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-                    content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
-                   
-                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+                    content.userInfo = ["key": "\(newAlarm.id)"]
+                    
+                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
-                    let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-//                    let request = UNNotificationRequest(identifier: id1, content: content, trigger: trigger)
-                    removePendingNotification()
+                    let request = UNNotificationRequest(identifier: newAlarm.id , content: content, trigger: trigger)
+                    print("AlarmId", newAlarm.id)
                     self.notificationCenter.add(request) { (error) in
                         if (error != nil) {
                             print("Error" + error.debugDescription)
@@ -214,11 +194,10 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                     content.title = "Báo thức"
                     content.body = self.labelAlarm2
                     content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-                    content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
-                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: tomorrow)
+                    content.userInfo = ["key": "\(newAlarm.id)"]
+                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: tomorrow)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
-                    let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-                    removePendingNotification()
+                    let request = UNNotificationRequest(identifier: newAlarm.id, content: content, trigger: trigger)
                     self.notificationCenter.add(request) { (error) in
                         if (error != nil) {
                             print("Error" + error.debugDescription)
@@ -236,13 +215,10 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 content.title = "Báo thức"
                 content.body = self.labelAlarm2
                 content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-                content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
-//                content.userInfo = ["key": "\(id1)"]
-                let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
+                content.userInfo = ["key": "\(newAlarm.id)"]
+                let triggerDaily = Calendar.current.dateComponents([.hour,.minute], from: date)
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
-                let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-//                let request = UNNotificationRequest(identifier: id1, content: content, trigger: trigger)
-                removePendingNotification()
+                let request = UNNotificationRequest(identifier: newAlarm.id, content: content, trigger: trigger)
                 self.notificationCenter.add(request) { (error) in
                     if (error != nil) {
                         print("Error" + error.debugDescription)
@@ -289,16 +265,32 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 
                 let dateNew = createDate(weekday: weekday, hour: hour, minute: minute, year: year)
                 print("dateNew", dateNew)
-                scheduleNotification(at: dateNew, body: labelAlarm2, titles: "Báo thức")
+                //                scheduleNotification(at: dateNew, body: labelAlarm2, titles: "Báo thức")
                 
+                let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute], from: dateNew)
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
+                
+                let content = UNMutableNotificationContent()
+                content.title = "Báo thức"
+                content.body = self.labelAlarm2
+                content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
+                content.userInfo = ["key": "\(newAlarm.id)"]
+                let request = UNNotificationRequest(identifier: newAlarm.id, content: content, trigger: trigger)
+                self.notificationCenter.add(request) { (error) in
+                    if (error != nil) {
+                        print("Error" + error.debugDescription)
+                        return
+                    }
+                }
             }
-            // updateAlarm
+            // Nếu có giá trị thì updateAlarm
         } else if objectAlarm != nil {
-           
+            
             if repeats.count == 0 {
                 delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, repeatAlarm:  "", sound: currentSound)
                 updateDelegate?.updateAlarm(updateA: objectAlarm!)
-                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: "", newLabel: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, newSound: currentSound)
+                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: "Không", newLabel: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, newSound: currentSound)
                 // Chỉ báo 1 lần
                 if date1 > current2 {
                     print("hoom nay")
@@ -306,19 +298,10 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                     content.title = "Báo thức"
                     content.body = self.labelAlarm2
                     content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-                    content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
-                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+                    content.userInfo = ["key": "\(objectAlarm!.id)"]
+                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
-                    let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-                    notificationCenter.getPendingNotificationRequests { [weak self] (notificationRequests) in
-                        var identifiers: [String] = []
-                        for notification: UNNotificationRequest in notificationRequests {
-                            if notification.content.userInfo["key"] as? String == self?.objectAlarm?.id {
-                                identifiers.append(notification.identifier)
-                            }
-                        }
-                        self?.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
-                    }
+                    let request = UNNotificationRequest(identifier: objectAlarm!.id, content: content, trigger: trigger)
                     self.notificationCenter.add(request) { (error) in
                         if (error != nil) {
                             print("Error" + error.debugDescription)
@@ -331,19 +314,10 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                     content.title = "Báo thức"
                     content.body = self.labelAlarm2
                     content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-                    content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
-                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: tomorrow)
+                    content.userInfo = ["key": "\(objectAlarm!.id)"]
+                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: tomorrow)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
-                    let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-                    notificationCenter.getPendingNotificationRequests { [weak self] (notificationRequests) in
-                        var identifiers: [String] = []
-                        for notification: UNNotificationRequest in notificationRequests {
-                            if notification.content.userInfo["key"] as? String == self?.objectAlarm?.id {
-                                identifiers.append(notification.identifier)
-                            }
-                        }
-                        self?.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
-                    }
+                    let request = UNNotificationRequest(identifier: objectAlarm!.id, content: content, trigger: trigger)
                     self.notificationCenter.add(request) { (error) in
                         if (error != nil) {
                             print("Error" + error.debugDescription)
@@ -361,19 +335,10 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 content.title = "Báo thức"
                 content.body = self.labelAlarm2
                 content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-                content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
-                let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
+                content.userInfo = ["key": "\(objectAlarm!.id)"]
+                let triggerDaily = Calendar.current.dateComponents([.hour,.minute], from: date)
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
-                let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-                notificationCenter.getPendingNotificationRequests { [weak self](notificationRequests) in
-                    var identifiers: [String] = []
-                    for notification: UNNotificationRequest in notificationRequests {
-                        if notification.content.userInfo["key"] as? String == self?.objectAlarm?.id {
-                            identifiers.append(notification.identifier)
-                        }
-                    }
-                    self?.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
-                }
+                let request = UNNotificationRequest(identifier: objectAlarm!.id, content: content, trigger: trigger)
                 self.notificationCenter.add(request) { (error) in
                     if (error != nil) {
                         print("Error" + error.debugDescription)
@@ -382,9 +347,9 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 }
                 
             } else {
-                delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: "\(labelAlarm2), ", repeatAlarm: repeatText, sound: currentSound)
+                delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức," : labelAlarm2, repeatAlarm: repeatText, sound: currentSound)
                 updateDelegate?.updateAlarm(updateA: objectAlarm!)
-                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: repeatText, newLabel: "\(labelAlarm2), ", newSound: currentSound)
+                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: repeatText, newLabel: labelAlarm2.count == 0 ? "Báo thức," : labelAlarm2, newSound: currentSound)
                 // Chỗ này lặp lại các tthứ cụ thể
                 let hour: Int = Calendar.current.component(.hour, from: date)
                 let minute: Int = Calendar.current.component(.minute, from: date)
@@ -418,7 +383,7 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 
                 let dateNew = createDate(weekday: weekday, hour: hour, minute: minute, year: year)
                 //                   scheduleNotification(at: date, body: labelAlarm2, titles: "Báo thức")
-                let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute,.second,], from: dateNew)
+                let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute], from: dateNew)
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
                 
@@ -426,20 +391,9 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 content.title = "Báo thức"
                 content.body = self.labelAlarm2
                 content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-                content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
+                content.userInfo = ["key": "\(objectAlarm!.id)"]
                 
-                let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-                
-//                self.notificationCenter.delegate = self
-                notificationCenter.getPendingNotificationRequests { [weak self] (notificationRequests) in
-                    var identifiers: [String] = []
-                    for notification: UNNotificationRequest in notificationRequests {
-                        if notification.content.userInfo["key"] as? String == self?.objectAlarm?.id {
-                            identifiers.append(notification.identifier)
-                        }
-                    }
-                    self?.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
-                }
+                let request = UNNotificationRequest(identifier: objectAlarm!.id, content: content, trigger: trigger)
                 self.notificationCenter.add(request) { (error) in
                     if (error != nil) {
                         print("Error" + error.debugDescription)
@@ -465,32 +419,20 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
         let calendar = Calendar(identifier: .gregorian)
         return calendar.date(from: components)!
     }
-    //Schedule Notification with weekly bases.
-    func scheduleNotification(at date: Date, body: String, titles:String) {
-        
-        let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute,.second,], from: date)
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
-        
+    func snoozeAddNotifi() {
+        let date = self.datePicker.date
+        print("giờ hiện tại", date)
+        let snoozeDate = date.addingTimeInterval(60)
+        print("giờ cộng thêm", snoozeDate)
         let content = UNMutableNotificationContent()
-        content.title = "Báo thức"
+        content.title = "Báo lại"
         content.body = self.labelAlarm2
         content.sound = UNNotificationSound(named: UNNotificationSoundName(self.currentSound + ".mp3"))
-        content.userInfo = ["key": "\(objectAlarm?.id ?? "")"]
-//        content.userInfo = ["key": "\(id1)"]
-        
-        let request = UNNotificationRequest(identifier: objectAlarm?.id ?? "", content: content, trigger: trigger)
-//        let request = UNNotificationRequest(identifier: id1, content: content, trigger: trigger)
-//        self.notificationCenter.delegate = self
-        //        notificationCenter.getPendingNotificationRequests { (notificationRequests) in
-        //            var identifiers: [String] = []
-        //            for notification: UNNotificationRequest in notificationRequests {
-        //                if notification.content.userInfo["key"] as? String == "Báo thức" {
-        //                    identifiers.append(notification.identifier)
-        //                }
-        //            }
-        //            self.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
-        //        }
+        content.userInfo = ["key":"id1"]
+        let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: snoozeDate)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        //                removePendingNotification()
         self.notificationCenter.add(request) { (error) in
             if (error != nil) {
                 print("Error" + error.debugDescription)
@@ -499,17 +441,16 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
         }
     }
     func removePendingNotification() {
-        notificationCenter.getPendingNotificationRequests { [weak self](notificationRequests) in
+        notificationCenter.getPendingNotificationRequests { (notificationRequests) in
             var identifiers: [String] = []
             for notification: UNNotificationRequest in notificationRequests {
-                if notification.content.userInfo["key"] as? String == self?.objectAlarm?.id {
+                if notification.content.userInfo["key"] as? String == "id1" {
                     identifiers.append(notification.identifier)
                 }
             }
-            self?.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
+            self.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
         }
     }
-    
 }
 
 extension EditAlarmViewController: PassLabelDelegate, PassSoundAlarmDelegate, RepeatViewControllerdelgate {

@@ -96,8 +96,8 @@
                                     <constraint firstAttribute="bottom" secondItem="cUz-Mb-Urk" secondAttribute="bottom" id="xrx-3y-d1S"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MG-Xc-DGP">
-                                <rect key="frame" x="50" y="207" width="290" height="71.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MG-Xc-DGP">
+                                <rect key="frame" x="76.666666666666686" y="207" width="237" height="72"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -125,10 +125,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0u-Y3-Jc3">
-                                <rect key="frame" x="145" y="293.66666666666669" width="100" height="30"/>
+                                <rect key="frame" x="145" y="294" width="100" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jh2-BV-2sp">
-                                        <rect key="frame" x="0.0" y="2.9999999999999609" width="25" height="24.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="3.0000000000000178" width="25" height="24.333333333333336"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="nDm-pE-WbP"/>
@@ -157,8 +157,6 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DgM-Ak-AdV" firstAttribute="centerY" secondItem="BVG-wx-DcD" secondAttribute="centerY" id="27V-gq-jkq"/>
-                            <constraint firstItem="3MG-Xc-DGP" firstAttribute="leading" secondItem="9JK-KZ-A7K" secondAttribute="leading" constant="50" id="29B-nf-3ps"/>
-                            <constraint firstItem="9JK-KZ-A7K" firstAttribute="trailing" secondItem="3MG-Xc-DGP" secondAttribute="trailing" constant="50" id="5Dr-0J-oNL"/>
                             <constraint firstItem="3MG-Xc-DGP" firstAttribute="centerX" secondItem="9JK-KZ-A7K" secondAttribute="centerX" id="7hd-N6-0i1"/>
                             <constraint firstItem="L5b-vC-g72" firstAttribute="leading" secondItem="9JK-KZ-A7K" secondAttribute="leading" constant="20" id="H5r-c3-yfu"/>
                             <constraint firstItem="9JK-KZ-A7K" firstAttribute="trailing" secondItem="L5b-vC-g72" secondAttribute="trailing" constant="20" id="MZQ-UN-2TM"/>
@@ -283,7 +281,7 @@
             </objects>
             <point key="canvasLocation" x="650.76923076923072" y="280.80568720379148"/>
         </scene>
-        <!--Báo thức-->
+        <!--Setting Alarm View Controller-->
         <scene sceneID="wmw-k2-cJl">
             <objects>
                 <viewController id="3Sh-Hh-qdY" customClass="SettingAlarmViewController" customModule="AppAlarm" customModuleProvider="target" sceneMemberID="viewController">
@@ -325,7 +323,7 @@
                             <constraint firstItem="0Pu-mi-JKv" firstAttribute="top" secondItem="PId-cD-KC3" secondAttribute="bottom" id="r7B-WN-Uyg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Báo thức" id="59N-DU-t2k">
+                    <navigationItem key="navigationItem" id="59N-DU-t2k">
                         <barButtonItem key="leftBarButtonItem" title="Sửa" id="O79-IT-Wtm">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
@@ -712,7 +710,7 @@
             </objects>
             <point key="canvasLocation" x="-1974" y="132"/>
         </scene>
-        <!--Giờ quốc tế-->
+        <!--Timezone View Controller-->
         <scene sceneID="6ct-60-ZZc">
             <objects>
                 <viewController id="vl2-3G-kGJ" customClass="TimezoneViewController" customModule="AppAlarm" customModuleProvider="target" sceneMemberID="viewController">
@@ -744,7 +742,7 @@
                             <constraint firstItem="8hc-sz-LIB" firstAttribute="top" secondItem="QIQ-Lm-8Lf" secondAttribute="top" constant="10" id="xaf-oG-tit"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Giờ quốc tế" id="2Yf-Jr-Vwe">
+                    <navigationItem key="navigationItem" id="2Yf-Jr-Vwe">
                         <barButtonItem key="leftBarButtonItem" title="Sửa" style="plain" id="CMH-2G-Csr">
                             <color key="tintColor" red="0.92941176889999999" green="0.63921570780000003" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -826,9 +824,9 @@
                                             <action selector="startButtonAction:" destination="uwn-AP-DE5" eventType="touchUpInside" id="LG5-Mq-gGW"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00, 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeE-yY-8OZ">
-                                        <rect key="frame" x="0.0" y="150" width="390" height="71.666666666666686"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeE-yY-8OZ">
+                                        <rect key="frame" x="22.333333333333343" y="140" width="345.66666666666663" height="107.66666666666669"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="90"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -839,11 +837,9 @@
                                     <constraint firstItem="PeE-yY-8OZ" firstAttribute="centerX" secondItem="73s-46-sdl" secondAttribute="centerX" id="IeJ-S5-own"/>
                                     <constraint firstItem="3Hx-EC-4CB" firstAttribute="centerX" secondItem="NFR-C7-nGe" secondAttribute="centerX" id="RF1-qj-giO"/>
                                     <constraint firstAttribute="bottom" secondItem="NFR-C7-nGe" secondAttribute="bottom" constant="15" id="S2f-w7-nyv"/>
-                                    <constraint firstAttribute="trailing" secondItem="PeE-yY-8OZ" secondAttribute="trailing" id="Tlk-wJ-WE0"/>
                                     <constraint firstItem="gpD-RR-rYc" firstAttribute="centerX" secondItem="k9o-bH-qqt" secondAttribute="centerX" id="dnh-2H-9WR"/>
-                                    <constraint firstItem="PeE-yY-8OZ" firstAttribute="top" secondItem="73s-46-sdl" secondAttribute="top" constant="150" id="gi9-pE-8eT"/>
+                                    <constraint firstItem="PeE-yY-8OZ" firstAttribute="top" secondItem="73s-46-sdl" secondAttribute="top" constant="140" id="gi9-pE-8eT"/>
                                     <constraint firstItem="NFR-C7-nGe" firstAttribute="leading" secondItem="73s-46-sdl" secondAttribute="leading" constant="15" id="hv3-qu-tCh"/>
-                                    <constraint firstItem="PeE-yY-8OZ" firstAttribute="leading" secondItem="73s-46-sdl" secondAttribute="leading" id="iIb-EV-Jye"/>
                                     <constraint firstItem="gpD-RR-rYc" firstAttribute="centerY" secondItem="k9o-bH-qqt" secondAttribute="centerY" id="mcV-eO-9fE"/>
                                     <constraint firstAttribute="bottom" secondItem="k9o-bH-qqt" secondAttribute="bottom" constant="15" id="tZA-j1-QL9"/>
                                     <constraint firstAttribute="trailing" secondItem="k9o-bH-qqt" secondAttribute="trailing" constant="15" id="wfC-4K-DEC"/>
@@ -955,7 +951,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K89-yR-qrV">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

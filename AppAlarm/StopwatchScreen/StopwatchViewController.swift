@@ -41,6 +41,7 @@ class StopwatchViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.separatorColor = .gray
         tableView.register(UINib(nibName: "LapTableViewCell", bundle: nil), forCellReuseIdentifier: "LapTableViewCell")
+        
     }
     
     @IBAction func startButtonAction(_ sender: UIButton) {
@@ -96,6 +97,8 @@ class StopwatchViewController: UIViewController {
                 startTimer()
                 startButton.setTitle("Dừng", for: .normal)
                 startButton.setTitleColor(.red, for: .normal)
+                startButton.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+                containerStartButtonView.layer.borderColor = UIColor.red.withAlphaComponent(0.3).cgColor
                 lapButton.setTitle("Vòng", for: .normal)
                 lapButton.setTitleColor(.white, for: .normal)
                 lapButton.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
@@ -107,7 +110,7 @@ class StopwatchViewController: UIViewController {
     func startTimer(){
  
         if lapTimer == nil{
-            lapTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateLapTimer), userInfo: nil, repeats: true)
+            lapTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateLapTimer), userInfo: nil, repeats: true)
             RunLoop.main.add(lapTimer!, forMode: .common )
         }
     }
@@ -190,11 +193,32 @@ class StopwatchViewController: UIViewController {
         let hour = counter / 3600
         let min  = ( counter % 3600 ) / 60
         let sec = ( counter % 3600 ) % 60
-//        let milisec = counter % 60
-        return String( format: "%0.2d:%0.2d:%0.2d", hour, min, sec)
-//        return String( format: "%02i:%02i.%02i", min, sec, milisec)
+//        let milisec = (counter % 3600) % 10
+        return String( format: "%0.2d:%0.2d,%0.2d", hour, min, sec)
+//        return String( format: "%02d:%02d.%02d", min, sec, milisec)
     }
-    
+//    func timeString(time:TimeInterval) -> String {
+//        let minutes = Int(time) / 60 % 60
+//        let seconds = Int(time) % 60
+//        let milliseconds = Int(time) % 60
+//        return String(format:"%02i:%02i.", minutes, seconds)
+//    }
+//
+//    func mstimeString(time:TimeInterval) -> String {
+//        let milliseconds = Int(time) % 60
+//        return String(format:"%02i", milliseconds)
+//    }
+//    func intToTime(interval: TimeInterval) -> NSString {
+//
+//      let ti = NSInteger(interval)
+//
+//      let ms = Int((interval / 1) * 1000)
+//
+//      let seconds = ti % 60
+//      let minutes = (ti / 60) % 60
+//
+//      return NSString(format: "%0.2d:%0.2d.%0.3d",minutes,seconds,ms)
+//    }
    
 }
 
@@ -223,7 +247,7 @@ extension StopwatchViewController: UITableViewDataSource {
 //        cell.detailTextLabel?.textColor = textColor
         cell.textLabel?.textColor = textColor
         cell.timeLapLabel.textColor = textColor
-        cell.numberLapLabel.text = (lapArray[ index ].title)
+        cell.numberLapLabel.text = lapArray[index].title
         cell.timeLapLabel.text = intToTime(lapArray[index].time)
         //tableView.reloadData()
         return cell

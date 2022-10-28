@@ -67,9 +67,9 @@ class Manager {
     // xoá Uy tín
     func removeAlarm(alarm: Alarm) {
         if let find = realm.objects(Alarm.self).first(where: { $0.id == alarm.id  }) {
-                        try? realm.write({
-                            realm.delete(find)
-                        })
+            try? realm.write({
+                realm.delete(find)
+            })
         }
     }
 }

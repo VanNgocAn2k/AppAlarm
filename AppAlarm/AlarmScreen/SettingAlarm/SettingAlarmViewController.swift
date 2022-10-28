@@ -28,7 +28,7 @@ class SettingAlarmViewController: UIViewController {
         alarmTableView.separatorColor = .gray
         self.alarmTableView.dataSource = self
         self.alarmTableView.delegate = self
-        // Cho phép chỉnh sửa tableView
+        // Cho phép chỉnh sửa chọn các row tableView
         self.alarmTableView.allowsSelectionDuringEditing = true
         
         self.registerTableViewCells()
@@ -86,7 +86,6 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
-        
         let object = arrData[indexPath.row]
         let date = object.time
         let dateFormatter = DateFormatter()
@@ -96,48 +95,60 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
         cell.timeLabel.text = "\(time)"
         cell.labelRepeatAlarmLabel.text = "\(object.labelAlarm) \(object.repeatAlarm)"
         
-//        let sw = UISwitch(frame: CGRect())
-////        sw.setOn(true, animated: false)
-//        sw.transform = CGAffineTransform(scaleX: 0.9, y: 0.9);
-//        sw.tag = indexPath.row
-//        sw.addTarget(self, action: #selector(self.switchTapped(_:)), for: .valueChanged)
-//        if object.isEnable {
-//            cell.timeLabel.textColor = .blue
-//            cell.labelRepeatAlarmLabel.textColor = .blue
-//            sw.setOn(true, animated: false)
-//        } else {
-//            cell.timeLabel.textColor = .red
-//            cell.labelRepeatAlarmLabel.textColor = .red
-//        }
-//        cell.accessoryView = sw
-        
+        cell.callBackSwitchState = { sender in
+            if sender == true {
+                cell.labelRepeatAlarmLabel.textColor = .white
+                cell.timeLabel.textColor = .white
+                
+                // Cần thêm lại thông báo khi bật Switch
+                let repeatAlarm = object.repeatAlarm
+                print("repeatAlarm", repeatAlarm)
+                let date = object.time
+                print("date", date)
+//                let currentDate = Date()
+                let content = UNMutableNotificationContent()
+                content.title = "báo thức"
+                content.body = object.labelAlarm
+                content.sound = UNNotificationSound(named: UNNotificationSoundName(object.soundAlarm + ".mp3"))
+                content.userInfo = ["key": "\(object.id)"]
+                let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
+                let request = UNNotificationRequest(identifier: object.id, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request) { (error) in
+                    if (error != nil) {
+                        print("Error" + error.debugDescription)
+                        return
+                    }
+                }
+                print("On")
+            } else {
+                cell.labelRepeatAlarmLabel.textColor = .gray
+                cell.timeLabel.textColor = .gray
+                var idetifirer = [String]()
+                idetifirer.append(object.id)
+                print("id", idetifirer)
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: idetifirer)
+//                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//                Manager.shared.removeAlarm(alarm: object)
+                print("Off")
+            }
+        }
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.black
         cell.selectedBackgroundView = backgroundView
         return cell
-       
-        
     }
-//    @IBAction func switchTapped(_ sender: UISwitch) {
-//        let index = sender.tag
-//        arrData[index].isEnable = sender.isOn
-//        if sender.isOn {
-//            print("switch on")
-//
-//        }
-//        else {
-//            print("switch off")
-//
-//        }
-//    }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteButton = UIContextualAction(style: .destructive, title: "Xoá") { _, _, _ in
+        let deleteButton = UIContextualAction(style: .destructive, title: "Xoá") { [weak self] _, _, _ in
             // xóa phần tử tại indexPath.row
-            let deleteAlarm = self.arrData[indexPath.row]
+            let deleteAlarm = self!.arrData[indexPath.row]
+            var identifiers = [String]()
+            identifiers.append(deleteAlarm.id)
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
             Manager.shared.removeAlarm(alarm: deleteAlarm)
-            self.fetchData()
-            
+//            Manager.shared.removeAllAlarm(alarm: deleteAlarm)
+            self?.fetchData()
         }
         deleteButton.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [deleteButton])
@@ -149,20 +160,23 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
             arrData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
-        
     }
     func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         // Di chuyển các Row
         let affectedEvent = arrData[fromIndexPath.row]
         arrData.remove(at: fromIndexPath.row)
         arrData.insert(affectedEvent, at: toIndexPath.row)
-        
         tableView.reloadData()
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // hàm này dùng để bỏ màu của dòng chọn
+        tableView.deselectRow(at: indexPath, animated: false)
         if isEditingMode {
+//            tableView.deselectRow(at: indexPath, animated: false)
+//            let backgroundView = UIView()
+//            backgroundView.backgroundColor = UIColor.black
+//            tableView.selectedBackgroundView = backgroundView
             self.index = indexPath
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "EditAlarmViewController") as! EditAlarmViewController
@@ -171,7 +185,6 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
             vc.updateDelegate = self
             self.present(vc, animated: true)
         }
-        
     }
 }
 extension SettingAlarmViewController: timelabelRepeatSoundDelegate, deleteDelegste, updateAlarmDelegate {
@@ -191,7 +204,6 @@ extension SettingAlarmViewController: timelabelRepeatSoundDelegate, deleteDelegs
     
     func setTimeLabelRepeatSoundAlarm(time: Date, labelAlarm: String, repeatAlarm: String, sound: String) {
         let timeLabelRepeat2 = Alarm(time: time, labelAlarm: labelAlarm, repeatAlarm: repeatAlarm, soundAlarm: sound, isEnable: true, onOffSnoozed: true)
-        print(timeLabelRepeat2)
         arrData.append(timeLabelRepeat2)
         self.alarmTableView.reloadData()
     }
