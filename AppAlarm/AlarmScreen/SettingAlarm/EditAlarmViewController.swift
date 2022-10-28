@@ -165,9 +165,9 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
         // Nếu objAlarm bằng nil thì tạo mới alarm , nếu objectAlarm khác nil thì sửa alarm
         if objectAlarm == nil {
             if repeats.count == 0 {
-                delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, repeatAlarm:  "", sound: currentSound)
+                delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, repeatAlarm: repeatText, sound: currentSound)
                 
-                let newAlarm = Alarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, repeatAlarm: "", soundAlarm: currentSound, isEnable: true, onOffSnoozed: true)
+                let newAlarm = Alarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, repeatAlarm: repeatText, soundAlarm: currentSound, isEnable: true, onOffSnoozed: true)
                 Manager.shared.addNewAlarm(alarm: newAlarm)
                 // Chỉ báo 1 lầnweekdaysz
                 if date1 > current2 {
@@ -226,7 +226,6 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                     }
                 }
                 
-                
             } else {
                 delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức," : labelAlarm2, repeatAlarm: repeatText, sound: currentSound)
                 let newAlarm = Alarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức," : labelAlarm2, repeatAlarm: repeatText, soundAlarm: currentSound, isEnable: true, onOffSnoozed: true)
@@ -265,12 +264,8 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
                 
                 let dateNew = createDate(weekday: weekday, hour: hour, minute: minute, year: year)
                 print("dateNew", dateNew)
-                //                scheduleNotification(at: dateNew, body: labelAlarm2, titles: "Báo thức")
-                
                 let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute], from: dateNew)
-                
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
-                
                 let content = UNMutableNotificationContent()
                 content.title = "Báo thức"
                 content.body = self.labelAlarm2
@@ -290,7 +285,7 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
             if repeats.count == 0 {
                 delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, repeatAlarm:  "", sound: currentSound)
                 updateDelegate?.updateAlarm(updateA: objectAlarm!)
-                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: "Không", newLabel: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, newSound: currentSound)
+                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: "", newLabel: labelAlarm2.count == 0 ? "Báo thức" : labelAlarm2, newSound: currentSound, isEnable: true)
                 // Chỉ báo 1 lần
                 if date1 > current2 {
                     print("hoom nay")
@@ -329,7 +324,7 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
             } else if repeats.count == 7 {
                 delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count > 0 ? "\(labelAlarm2), " : labelAlarm2, repeatAlarm: "Hàng ngày", sound: currentSound)
                 updateDelegate?.updateAlarm(updateA: objectAlarm!)
-                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: "Hàng ngày", newLabel: labelAlarm2.count > 0 ? "\(labelAlarm2), " : labelAlarm2, newSound: currentSound)
+                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: "Hàng ngày", newLabel: labelAlarm2.count > 0 ? "\(labelAlarm2), " : labelAlarm2, newSound: currentSound, isEnable: true)
                 // Lặp lại hàng ngày
                 let content = UNMutableNotificationContent()
                 content.title = "Báo thức"
@@ -349,12 +344,12 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
             } else {
                 delegate?.setTimeLabelRepeatSoundAlarm(time: date, labelAlarm: labelAlarm2.count == 0 ? "Báo thức," : labelAlarm2, repeatAlarm: repeatText, sound: currentSound)
                 updateDelegate?.updateAlarm(updateA: objectAlarm!)
-                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: repeatText, newLabel: labelAlarm2.count == 0 ? "Báo thức," : labelAlarm2, newSound: currentSound)
+                Manager.shared.updateAlarm(alarm: objectAlarm!, newTime: date, newRepeat: repeatText, newLabel: labelAlarm2.count == 0 ? "Báo thức," : labelAlarm2, newSound: currentSound, isEnable: true)
                 // Chỗ này lặp lại các tthứ cụ thể
                 let hour: Int = Calendar.current.component(.hour, from: date)
                 let minute: Int = Calendar.current.component(.minute, from: date)
                 let year: Int = Calendar.current.component(.year, from: date)
-                var weekday = 0
+                var weekday = 1
                 
                 for wd in repeats {
                     if wd == 0 {
@@ -405,20 +400,7 @@ class EditAlarmViewController: UIViewController, UNUserNotificationCenterDelegat
         
         dismiss(animated: true, completion: nil)
     }
-    
-    func createDate(weekday: Int, hour: Int, minute: Int, year: Int) -> Date{
-        
-        var components = DateComponents()
-        components.hour = hour
-        components.minute = minute
-        components.year = year
-        components.weekday = weekday // sunday = 1 ... saturday = 7
-        components.weekdayOrdinal = 10
-        components.timeZone = .current
-        
-        let calendar = Calendar(identifier: .gregorian)
-        return calendar.date(from: components)!
-    }
+
     func snoozeAddNotifi() {
         let date = self.datePicker.date
         print("giờ hiện tại", date)

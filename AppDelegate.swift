@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
+        // Yêu cầu cấp quyền
         let options: UNAuthorizationOptions = [.alert, .sound];
         center.requestAuthorization(options: options) {
           (granted, error) in
@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         self.center.delegate = self
+        // tuỳ chỉnh cài đặt
         center.getNotificationSettings { (settings) in
           if settings.authorizationStatus != .authorized {
             // Notifications not allowed

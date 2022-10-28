@@ -18,9 +18,7 @@ class RingViewController: UIViewController {
     
     var player: AVAudioPlayer?
     var showImageIndex: Int = 0
-    
     weak var delegate: PassSoundDelegate?
-    
     var arrRing: [String] = ["Thầy Ba cười", "Dậy Đi Cháu Ơi", "Kill This Love", "Quân Đội", "iPhone", "Bá Đạo", "Bell", "Chime", "Dracula", "Electronica", "Escape", "Funky", "Lollypop", "Oldie", "Party", "Ping", "Police", "Ring", "Space", "Tickle", "Transmission", "Trumpet", "Tugboat", "Wake"]
     
     override func viewDidLoad() {
@@ -65,9 +63,7 @@ extension RingViewController: UITableViewDelegate, UITableViewDataSource {
         }else{
             cell.showImage.isHidden = true
         }
-        
         return cell
-        
     }
     // chọn vào row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -90,6 +86,4 @@ extension RingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
-    
-    
 }

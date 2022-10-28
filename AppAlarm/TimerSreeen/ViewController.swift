@@ -30,6 +30,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         }
     }
     var currentSound: String = ""
+    let shapeLayer = CAShapeLayer()
     
     @IBOutlet weak var containerCancelButtonView: UIView!
     @IBOutlet weak var containerStartButtonView: UIView!
@@ -336,7 +337,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     //MARK: - Animation
-    let shapeLayer = CAShapeLayer()
     
     func animationCircular(){
         let center = CGPoint(x: shapeView.frame.width / 2, y: shapeView.frame.height / 2)

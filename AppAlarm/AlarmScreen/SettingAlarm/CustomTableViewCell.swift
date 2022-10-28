@@ -11,17 +11,17 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelRepeatAlarmLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
- 
+    @IBOutlet weak var stateSwitch: UISwitch!
     
     var callBackSwitchState:((Bool) -> (Void))?
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
     }
     
     @IBAction func onOffAlarmSwitch(_ sender: UISwitch) {
-        
         callBackSwitchState?(sender.isOn)
-        
     }
+   
 }

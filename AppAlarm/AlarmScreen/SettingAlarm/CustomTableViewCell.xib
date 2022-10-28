@@ -56,6 +56,7 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="labelRepeatAlarmLabel" destination="nsp-H0-Tpx" id="tQI-PQ-5t9"/>
+                <outlet property="stateSwitch" destination="vCf-KG-p9K" id="O7N-ae-ffQ"/>
                 <outlet property="timeLabel" destination="fU0-Fv-LqI" id="0vk-go-p4m"/>
             </connections>
             <point key="canvasLocation" x="63.846153846153847" y="-12.085308056872037"/>

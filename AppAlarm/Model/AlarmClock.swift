@@ -8,90 +8,97 @@
 import Foundation
 import UIKit
 
-//struct AlarmClock{
-//    var time: String
-//    var labelAlarm: String
-//    var repeatAlarm: String
-//    var isEnable: Bool
-//}
-
-protocol AlarmSchedulerDelegate {
-    func setNotificationWithDate(_ date: Date, onWeekdaysForNotify:[Int], snoozeEnabled: Bool, onSnooze:Bool, soundName: String, index: Int)
-    //helper
-    func setNotificationForSnooze(snoozeMinute: Int, soundName: String, index: Int)
-    func setupNotificationSettings() -> UIUserNotificationSettings
-    func reSchedule()
-    func checkNotification()
-}
-func correctSecondComponent(date: Date, calendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian))->Date {
-    let second = calendar.component(.second, from: date)
-    let d = (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.second, value: -second, to: date, options:.matchStrictly)!
-    return d
-}
-enum weekdaysComparisonResult {
-    case before
-    case same
-    case after
-}
-
-func compare(weekday w1: Int, with w2: Int) -> weekdaysComparisonResult
-{
-    if w1 != 1 && w2 == 1 {return .before}
-    else if w1 == w2 {return .same}
-    else {return .after}
-}
-func correctDate(_ date: Date, onWeekdaysForNotify weekdays:[Int]) -> [Date]
-{
-    var correctedDate: [Date] = [Date]()
-    let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-    let now = Date()
-    let flags: NSCalendar.Unit = [NSCalendar.Unit.weekday, NSCalendar.Unit.weekdayOrdinal, NSCalendar.Unit.day]
-    let dateComponents = (calendar as NSCalendar).components(flags, from: date)
-    let weekday:Int = dateComponents.weekday!
+func createDate(weekday: Int, hour: Int, minute: Int, year: Int) -> Date{
     
-    //no repeat
-    if weekdays.isEmpty{
-        //scheduling date is eariler than current date
-        if date < now {
-            //plus one day, otherwise the notification will be fired righton
-            correctedDate.append((calendar as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: 1, to: date, options:.matchStrictly)!)
-        }
-        else { //later
-            correctedDate.append(date)
-        }
-        return correctedDate
-    }
-    //repeat
-    else {
-        let daysInWeek = 7
-        correctedDate.removeAll(keepingCapacity: true)
-        for wd in weekdays {
-            
-            var wdDate: Date!
-            //schedule on next week
-            if compare(weekday: wd, with: weekday) == .before {
-                wdDate =  (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: wd+daysInWeek-weekday, to: date, options:.matchStrictly)!
-            }
-            //schedule on today or next week
-            else if compare(weekday: wd, with: weekday) == .same {
-                //scheduling date is eariler than current date, then schedule on next week
-                if date.compare(now) == ComparisonResult.orderedAscending {
-                    wdDate = (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: daysInWeek, to: date, options:.matchStrictly)!
-                }
-                else { //later
-                    wdDate = date
-                }
-            }
-            //schedule on next days of this week
-            else { //after
-                wdDate =  (calendar as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: wd-weekday, to: date, options:.matchStrictly)!
-            }
-            
-            //fix second component to 0
-            wdDate = correctSecondComponent(date: wdDate, calendar: calendar)
-            correctedDate.append(wdDate)
-        }
-        return correctedDate
-    }
+    var components = DateComponents()
+    components.hour = hour
+    components.minute = minute
+    components.year = year
+    components.weekday = weekday // sunday = 1 ... saturday = 7
+    components.weekdayOrdinal = 10
+    components.timeZone = .current
+    
+    let calendar = Calendar(identifier: .gregorian)
+    return calendar.date(from: components)!
 }
-
+//                else {
+                    
+//                    let hour: Int = Calendar.current.component(.hour, from: date)
+//                    let minute: Int = Calendar.current.component(.minute, from: date)
+//                    let year: Int = Calendar.current.component(.year, from: date)
+//                    var weekday = 0
+//                    let arrString = repeatAlarm.components(separatedBy: " ")
+//                    let someDic = ["CN":1, "Thứ 2":2, "Thứ 3":3, "Thứ 4":4, "Thứ 5":5, "Thứ 6":6, "Thứ 7":7]
+//                    print(someDic["CN"])
+//                    //                    for (key, value) in someDic {
+//                    //                   //if key == repeatAlarm && value == weekday {
+//                    //                   //weekday = value
+//                    //                   // print("key:\(key) Thứ:\(value)")
+//                    //                   //}
+//                    //
+//                    //                        repeatAlarm = key
+//                    //                        weekday = value
+//                    //                        print("key:\(key) Thứ:\(value)")
+//                    //                    }
+//
+//                    var arrInt = [Int]()
+//                    for i in arrString {
+//                        print(i)
+////                        arrInt.append(someDic[i])
+//                    }
+//
+//                    print("asdadadadadad", arrInt)
+//                    // Đây mới là 1 mảng string này
+//                    let b = ["Thứ 2", "Thứ 3"]
+//                    for i in repeatAlarm {
+//                        let a = i
+//                        print(a)
+//                    }
+//
+////                    for r in repeatAlarm {
+////                        let weekday = someDic[r] // => int
+////                       print("abc", weekday)
+////
+////                    }
+////                    for wd in repeatAlarm {
+////                        if wd == 0 {
+////                            weekday = 1
+////                            print("thứ", weekday)
+////                        } else if wd == "Thứ 2" {
+////                            weekday = 2
+////                            print("thứ", weekday)
+////                        } else if wd == "Thứ 3" {
+////                            weekday = 3
+////                            print("thứ", weekday)
+////                        }else if wd == "Thứ 4" {
+////                            weekday = 4
+////                            print("thứ", weekday)
+////                        }else if wd == "Thứ 5" {
+////                            weekday = 5
+////                            print("thứ", weekday)
+////                        }else if wd == "Thứ 6 " {
+////                            weekday = 6
+////                            print("thứ", weekday)
+////                        }else if wd == "Thứ 7 " {
+////                            weekday = 7
+////                            print("thứ", weekday)
+////                        }
+////                    }
+//
+//                    let dateNew = createDate(weekday: weekday, hour: hour, minute: minute, year: year)
+//                    print("dateNew", dateNew)
+//                    let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute], from: dateNew)
+//                    let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
+//                    let content = UNMutableNotificationContent()
+//                    content.title = "Báo thức"
+//                    content.body = object.labelAlarm
+//                    content.sound = UNNotificationSound(named: UNNotificationSoundName(object.soundAlarm + ".mp3"))
+//                    content.userInfo = ["key": "\(object.id)"]
+//                    let request = UNNotificationRequest(identifier: object.id, content: content, trigger: trigger)
+//                    UNUserNotificationCenter.current().add(request) { (error) in
+//                        if (error != nil) {
+//                            print("Error" + error.debugDescription)
+//                            return
+//                        }
+//                    }
+//                }

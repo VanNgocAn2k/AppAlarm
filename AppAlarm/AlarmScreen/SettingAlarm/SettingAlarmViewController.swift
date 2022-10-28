@@ -13,6 +13,7 @@ class SettingAlarmViewController: UIViewController {
     var arrData = [Alarm]()
     var index: IndexPath?
     var isEditingMode = false
+    let weekdays: [String] = []
     
     @IBOutlet weak var alarmTableView: UITableView!
     @IBOutlet weak var editAlarm: UIBarButtonItem!
@@ -30,11 +31,10 @@ class SettingAlarmViewController: UIViewController {
         self.alarmTableView.delegate = self
         // Cho phép chỉnh sửa chọn các row tableView
         self.alarmTableView.allowsSelectionDuringEditing = true
-        
         self.registerTableViewCells()
         fetchData()
     }
-    
+
     func fetchData() {
         arrData = Manager.shared.getAllAlarm()
         alarmTableView.reloadData()
@@ -46,13 +46,11 @@ class SettingAlarmViewController: UIViewController {
         {
             isEditingMode = false
             self.editAlarm.title = "Sửa"
-    
         }
         else
         {
             isEditingMode = true
             self.editAlarm.title = "Xong"
-
         }
         self.setEditing(isEditingMode, animated: true)
     }
@@ -73,7 +71,6 @@ class SettingAlarmViewController: UIViewController {
         self.alarmTableView.register(alarmCell, forCellReuseIdentifier: "CustomTableViewCell")
     }
     func formattedDate(date: Date) -> String {
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         return formatter.string(from: date)
@@ -95,29 +92,71 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
         cell.timeLabel.text = "\(time)"
         cell.labelRepeatAlarmLabel.text = "\(object.labelAlarm) \(object.repeatAlarm)"
         
+        if object.isEnable == true {
+            cell.stateSwitch.isOn = true
+        } else {
+            cell.stateSwitch.isOn = false
+        }
+        
         cell.callBackSwitchState = { sender in
             if sender == true {
                 cell.labelRepeatAlarmLabel.textColor = .white
                 cell.timeLabel.textColor = .white
-                
+                Manager.shared.updateAlarm(alarm: object, newTime: object.time, newRepeat: object.repeatAlarm, newLabel: object.labelAlarm, newSound: object.soundAlarm, isEnable: true)
                 // Cần thêm lại thông báo khi bật Switch
+//                let repeatAlarm = object.repeatAlarm.split(separator: ",") as? [String] ?? []
                 let repeatAlarm = object.repeatAlarm
                 print("repeatAlarm", repeatAlarm)
                 let date = object.time
                 print("date", date)
-//                let currentDate = Date()
-                let content = UNMutableNotificationContent()
-                content.title = "báo thức"
-                content.body = object.labelAlarm
-                content.sound = UNNotificationSound(named: UNNotificationSoundName(object.soundAlarm + ".mp3"))
-                content.userInfo = ["key": "\(object.id)"]
-                let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
-                let request = UNNotificationRequest(identifier: object.id, content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request) { (error) in
-                    if (error != nil) {
-                        print("Error" + error.debugDescription)
-                        return
+                let tomorrow = date.addingTimeInterval(24.0 * 3600.0)
+                let currentDate = Date()
+                if repeatAlarm.count == 0 {
+                    if date > currentDate {
+                        let content = UNMutableNotificationContent()
+                        content.title = "báo thức"
+                        content.body = object.labelAlarm
+                        content.sound = UNNotificationSound(named: UNNotificationSoundName(object.soundAlarm + ".mp3"))
+                        content.userInfo = ["key": "\(object.id)"]
+                        let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
+                        let request = UNNotificationRequest(identifier: object.id, content: content, trigger: trigger)
+                        UNUserNotificationCenter.current().add(request) { (error) in
+                            if (error != nil) {
+                                print("Error" + error.debugDescription)
+                                return
+                            }
+                        }
+                    } else {
+                        let content = UNMutableNotificationContent()
+                        content.title = "báo thức"
+                        content.body = object.labelAlarm
+                        content.sound = UNNotificationSound(named: UNNotificationSoundName(object.soundAlarm + ".mp3"))
+                        content.userInfo = ["key": "\(object.id)"]
+                        let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: tomorrow)
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
+                        let request = UNNotificationRequest(identifier: object.id, content: content, trigger: trigger)
+                        UNUserNotificationCenter.current().add(request) { (error) in
+                            if (error != nil) {
+                                print("Error" + error.debugDescription)
+                                return
+                            }
+                        }
+                    }
+                } else if repeatAlarm.count == 7 {
+                    let content = UNMutableNotificationContent()
+                    content.title = "báo thức"
+                    content.body = object.labelAlarm
+                    content.sound = UNNotificationSound(named: UNNotificationSoundName(object.soundAlarm + ".mp3"))
+                    content.userInfo = ["key": "\(object.id)"]
+                    let dateComponent = Calendar.current.dateComponents([.hour, .minute], from: date)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+                    let request = UNNotificationRequest(identifier: object.id, content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(request) { (error) in
+                        if (error != nil) {
+                            print("Error" + error.debugDescription)
+                            return
+                        }
                     }
                 }
                 print("On")
@@ -128,17 +167,18 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
                 idetifirer.append(object.id)
                 print("id", idetifirer)
                 UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: idetifirer)
-//                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//                Manager.shared.removeAlarm(alarm: object)
+                //                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                Manager.shared.updateAlarm(alarm: object, newTime: object.time, newRepeat: object.repeatAlarm, newLabel: object.labelAlarm, newSound: object.soundAlarm, isEnable: false)
                 print("Off")
             }
+            
         }
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.black
         cell.selectedBackgroundView = backgroundView
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteButton = UIContextualAction(style: .destructive, title: "Xoá") { [weak self] _, _, _ in
             // xóa phần tử tại indexPath.row
@@ -147,7 +187,6 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
             identifiers.append(deleteAlarm.id)
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
             Manager.shared.removeAlarm(alarm: deleteAlarm)
-//            Manager.shared.removeAllAlarm(alarm: deleteAlarm)
             self?.fetchData()
         }
         deleteButton.backgroundColor = .red
@@ -173,10 +212,6 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
         // hàm này dùng để bỏ màu của dòng chọn
         tableView.deselectRow(at: indexPath, animated: false)
         if isEditingMode {
-//            tableView.deselectRow(at: indexPath, animated: false)
-//            let backgroundView = UIView()
-//            backgroundView.backgroundColor = UIColor.black
-//            tableView.selectedBackgroundView = backgroundView
             self.index = indexPath
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "EditAlarmViewController") as! EditAlarmViewController
@@ -188,7 +223,6 @@ extension SettingAlarmViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 extension SettingAlarmViewController: timelabelRepeatSoundDelegate, deleteDelegste, updateAlarmDelegate {
-    
     func updateAlarm(updateA: Alarm) {
         if index != nil {
             alarmTableView.reloadData()

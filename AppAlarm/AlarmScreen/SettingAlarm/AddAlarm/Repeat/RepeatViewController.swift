@@ -15,12 +15,7 @@ class RepeatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var delegate: RepeatViewControllerdelgate?
-    
-    
     var arrWeekday: [String] = ["Mọi chủ nhật", "Mọi thứ hai", "Mọi thứ ba", "Mọi thứ tư", "Mọi thứ năm", "Mọi thứ sáu", "Mọi thứ bảy"]
-    
-    var chooseRepeat:[String] = []
-    
     var showImageIndex = Set<Int>()
     
     override func viewDidLoad() {
@@ -49,17 +44,12 @@ class RepeatViewController: UIViewController {
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
-        
         print(showImageIndex)
-        
         //Biến  Set thành Array, và sắp xếp theo tăng dần bằng sorted
         let arry = Array(showImageIndex).sorted()
         print(arry)
         delegate?.pickRepeat(repeats: arry)
-        
         dismiss(animated: true)
-        
-        
     }
 }
 extension RepeatViewController: UITableViewDelegate, UITableViewDataSource {

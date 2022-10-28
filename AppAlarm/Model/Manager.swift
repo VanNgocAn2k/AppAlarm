@@ -31,13 +31,14 @@ class Manager {
         }
     }
     // sửa alarm
-    func updateAlarm(alarm: Alarm, newTime: Date, newRepeat: String, newLabel: String, newSound: String) {
+    func updateAlarm(alarm: Alarm, newTime: Date, newRepeat: String, newLabel: String, newSound: String, isEnable: Bool) {
         do {
             try realm.write({
                 alarm.time = newTime
                 alarm.repeatAlarm = newRepeat
                 alarm.labelAlarm = newLabel
                 alarm.soundAlarm = newSound
+                alarm.isEnable = isEnable
             })
         } catch let error {
             print("Cannot add this alarm, \(error.localizedDescription)")
