@@ -36,16 +36,12 @@
 
 ## Thao tác
 
-<img src=https://user-images.githubusercontent.com/105619244/198434020-b55542dc-5644-4126-8df9-5cebaeb33e36.gif alt=31 width="150" /> 
+<kbd><img src=https://user-images.githubusercontent.com/105619244/198434020-b55542dc-5644-4126-8df9-5cebaeb33e36.gif alt=31 width="150" /> 
 <img src=https://user-images.githubusercontent.com/105619244/198434124-3a0d0f24-ccc0-4711-85d3-85366da75ffd.gif alt=32 width="150" /> 
 <img src=https://user-images.githubusercontent.com/105619244/198434132-82f3b151-67cc-47bf-88de-c6e1cd9fd885.gif alt=33 width="150" /> 
 <img src=https://user-images.githubusercontent.com/105619244/198434138-1a4f0413-b646-4f4c-aaf6-7dccec3230c6.gif alt=34 width="150" /> 
-<img src=https://user-images.githubusercontent.com/105619244/198434144-6eb8d85c-6824-43af-a6f4-de1e9b920cb6.gif alt=35 width="150" /> 
+<img src=https://user-images.githubusercontent.com/105619244/198434144-6eb8d85c-6824-43af-a6f4-de1e9b920cb6.gif alt=35 width="150" /> <kbd>
 
-![31](https://user-images.githubusercontent.com/105619244/198434020-b55542dc-5644-4126-8df9-5cebaeb33e36.gif)
-![32](https://user-images.githubusercontent.com/105619244/198434124-3a0d0f24-ccc0-4711-85d3-85366da75ffd.gif)
-![33](https://user-images.githubusercontent.com/105619244/198434132-82f3b151-67cc-47bf-88de-c6e1cd9fd885.gif)
-![34](https://user-images.githubusercontent.com/105619244/198434138-1a4f0413-b646-4f4c-aaf6-7dccec3230c6.gif)
-![35](https://user-images.githubusercontent.com/105619244/198434144-6eb8d85c-6824-43af-a6f4-de1e9b920cb6.gif)
+
 
 
