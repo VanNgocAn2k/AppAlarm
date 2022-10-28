@@ -36,38 +36,16 @@
 
 ## Thao tác
 
-<img src=https://user-images.githubusercontent.com/105619244/198362750-9ac708e1-25d1-4d7b-893c-f63bbbe055bd.mp4
- alt=21 width="150" /> 
+<img src=https://user-images.githubusercontent.com/105619244/198434020-b55542dc-5644-4126-8df9-5cebaeb33e36.gif alt=31 width="150" /> 
+<img src=https://user-images.githubusercontent.com/105619244/198434124-3a0d0f24-ccc0-4711-85d3-85366da75ffd.gif alt=32 width="150" /> 
+<img src=https://user-images.githubusercontent.com/105619244/198434132-82f3b151-67cc-47bf-88de-c6e1cd9fd885.gif alt=33 width="150" /> 
+<img src=https://user-images.githubusercontent.com/105619244/198434138-1a4f0413-b646-4f4c-aaf6-7dccec3230c6.gif alt=34 width="150" /> 
+<img src=https://user-images.githubusercontent.com/105619244/198434144-6eb8d85c-6824-43af-a6f4-de1e9b920cb6.gif alt=35 width="150" /> 
 
-https://user-images.githubusercontent.com/105619244/198362750-9ac708e1-25d1-4d7b-893c-f63bbbe055bd.mp4
-
-
-
-https://user-images.githubusercontent.com/105619244/198362765-215b0379-3f38-4f82-b6a9-03ff5888d8eb.mp4
-
-
-
-https://user-images.githubusercontent.com/105619244/198362802-152378d8-3aba-4bf4-b5c8-34d320e75822.mp4
-
-
-
-https://user-images.githubusercontent.com/105619244/198362805-5233e1c8-0237-48e1-8091-bbd772e079df.mp4
-
-
-
-https://user-images.githubusercontent.com/105619244/198362808-1bbadd17-1867-4c4f-ad35-bcb9f8f56677.mp4
-
-
-
-https://user-images.githubusercontent.com/105619244/198362816-a8974d98-54cb-41a8-8a65-2db7105ae18d.mp4
-
-
-
-https://user-images.githubusercontent.com/105619244/198362821-3d76b0a8-c434-49c6-86db-9ac4b8deab6c.mp4
-
-
-
-https://user-images.githubusercontent.com/105619244/198362827-17986ebf-652a-493e-ac10-067dcc8ffb62.mp4
-
+![31](https://user-images.githubusercontent.com/105619244/198434020-b55542dc-5644-4126-8df9-5cebaeb33e36.gif)
+![32](https://user-images.githubusercontent.com/105619244/198434124-3a0d0f24-ccc0-4711-85d3-85366da75ffd.gif)
+![33](https://user-images.githubusercontent.com/105619244/198434132-82f3b151-67cc-47bf-88de-c6e1cd9fd885.gif)
+![34](https://user-images.githubusercontent.com/105619244/198434138-1a4f0413-b646-4f4c-aaf6-7dccec3230c6.gif)
+![35](https://user-images.githubusercontent.com/105619244/198434144-6eb8d85c-6824-43af-a6f4-de1e9b920cb6.gif)
 
 
