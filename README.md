@@ -1,5 +1,6 @@
 
 # Ứng dụng Dồng hồ 
+* Dựa trên ý tưởng từ [đây](https://play.google.com/store/apps/details?id=com.nhstudio.alarmioss&hl=vi&gl=US)
 
 ## Ảnh chụp màn hình
 
@@ -41,6 +42,17 @@
 <img src=https://user-images.githubusercontent.com/105619244/198434132-82f3b151-67cc-47bf-88de-c6e1cd9fd885.gif alt=33 width="150" /> 
 <img src=https://user-images.githubusercontent.com/105619244/198434138-1a4f0413-b646-4f4c-aaf6-7dccec3230c6.gif alt=34 width="150" /> 
 <img src=https://user-images.githubusercontent.com/105619244/198434144-6eb8d85c-6824-43af-a6f4-de1e9b920cb6.gif alt=35 width="150" />
+
+## Chức năng chính 
+ * Báo thức(thêm,sửa,xoá)
+ * Đồng hồ bấm giờ
+ * Giò thế giới
+ * Hẹn giờ
+## Thư viện sử dụng
+- pod 'RealmSwift'
+ 
+## Người viết nội dung 
+ [Văn Ngọc An](https://www.facebook.com/an.vanngoc)
 
 
 
